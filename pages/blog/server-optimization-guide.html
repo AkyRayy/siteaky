@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полное руководство по оптимизации сервера Minecraft - AkyDev</title>
+    <meta name="description" content="Комплексное руководство по оптимизации Minecraft сервера: JVM параметры, настройка конфигов, выбор серверного ядра и лучшие практики.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230A0A0A' width='100' height='100'/><text x='50' y='50' text-anchor='middle' dy='.3em' fill='%23C8FF00' font-family='monospace' font-size='40'>AK</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../index.html" class="logo-text">AKY<span class="logo-accent">DEV</span></a>
+            </div>
+            <nav class="nav-menu">
+                <a href="../../index.html" class="nav-link">Главная</a>
+                <a href="../about.html" class="nav-link">О нас</a>
+                <a href="../services.html" class="nav-link">Услуги</a>
+                <a href="../portfolio.html" class="nav-link">Портфолио</a>
+                <a href="../blog.html" class="nav-link active">Блог</a>
+                <a href="../contact.html" class="nav-link">Контакты</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="../contact.html" class="btn-cta">Обсудить проект</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-container">
+            <nav class="mobile-nav">
+                <a href="../../index.html" class="mobile-nav-link">Главная</a>
+                <a href="../about.html" class="mobile-nav-link">О нас</a>
+                <a href="../services.html" class="mobile-nav-link">Услуги</a>
+                <a href="../portfolio.html" class="mobile-nav-link">Портфолио</a>
+                <a href="../blog.html" class="mobile-nav-link">Блог</a>
+                <a href="../contact.html" class="mobile-nav-link">Контакты</a>
+            </nav>
+            <div class="mobile-socials">
+                <a href="https://discord.gg/VQdwjt472D" class="social-link">Discord</a>
+                <a href="https://t.me/akydevv" class="social-link">Telegram</a>
+                <a href="https://github.com/JavaSoska777" class="social-link">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Article Hero -->
+        <section class="article-hero">
+            <div class="container">
+                <div class="article-breadcrumb">
+                    <a href="../blog.html">Блог</a>
+                    <span class="breadcrumb-separator">→</span>
+                    <span class="breadcrumb-current">Оптимизация</span>
+                </div>
+                <div class="article-header">
+                    <div class="article-category">
+                        <span class="category-badge">Оптимизация</span>
+                        <span class="article-date">10 марта 2026</span>
+                    </div>
+                    <h1 class="article-title">Полное руководство по оптимизации сервера Minecraft</h1>
+                    <p class="article-subtitle">
+                        Настройка JVM параметров, оптимизация конфигов и выбор правильного серверного ядра для максимальной производительности
+                    </p>
+                    <div class="article-meta">
+                        <div class="article-author">
+                            <div class="author-avatar">👨‍💻</div>
+                            <div class="author-info">
+                                <div class="author-name">AkyDev Team</div>
+                                <div class="author-role">Эксперты по оптимизации</div>
+                            </div>
+                        </div>
+                        <div class="article-stats">
+                            <span class="stat-item">⏱️ 12 мин чтения</span>
+                            <span class="stat-item">👁️ 2.5K просмотров</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content -->
+        <section class="article-content">
+            <div class="container">
+                <div class="article-layout">
+                    <div class="article-main">
+                        <div class="article-intro">
+                            <p>
+                                Оптимизация Minecraft сервера — это комплексный процесс, который включает настройку JVM, выбор правильного серверного ядра, оптимизацию конфигурационных файлов и мониторинг производительности. В этом подробном руководстве мы разберём все аспекты оптимизации для достижения максимальной производительности.
+                            </p>
+                        </div>
+
+                        <div class="article-toc">
+                            <h3>Содержание статьи</h3>
+                            <ul>
+                                <li><a href="#jvm-optimization">Оптимизация JVM параметров</a></li>
+                                <li><a href="#server-cores">Выбор серверного ядра</a></li>
+                                <li><a href="#config-optimization">Оптимизация конфигурационных файлов</a></li>
+                                <li><a href="#world-settings">Настройка мира и чанков</a></li>
+                                <li><a href="#performance-monitoring">Мониторинг производительности</a></li>
+                                <li><a href="#advanced-techniques">Продвинутые техники</a></li>
+                                <li><a href="#conclusion">Заключение</a></li>
+                            </ul>
+                        </div>
+
+                        <h2 id="jvm-optimization">Оптимизация JVM параметров</h2>
+                        <p>
+                            Правильная настройка JVM (Java Virtual Machine) — это основа производительности любого Minecraft сервера. Вот оптимальные параметры для разных ситуаций:
+                        </p>
+
+                        <div class="config-block">
+                            <h4>🚀 Оптимальные JVM параметры для серверов 1-4 ГБ RAM:</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">Bash</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                                </div>
+                                <pre><code>java -Xms2G -Xmx2G \
+-XX:+UseG1GC \
+-XX:+ParallelRefProcEnabled \
+-XX:MaxGCPauseMillis=200 \
+-XX:+UnlockExperimentalVMOptions \
+-XX:+DisableExplicitGC \
+-XX:+AlwaysPreTouch \
+-XX:G1NewSizePercent=30 \
+-XX:G1MaxNewSizePercent=40 \
+-XX:G1HeapRegionSize=8M \
+-XX:G1ReservePercent=20 \
+-XX:G1HeapWastePercent=5 \
+-XX:G1MixedGCCountTarget=4 \
+-XX:InitiatingHeapOccupancyPercent=15 \
+-XX:G1MixedGCLiveThresholdPercent=90 \
+-XX:G1RSetUpdatingPauseTimePercent=5 \
+-XX:SurvivorRatio=32 \
+-XX:+PerfDisableSharedMem \
+-XX:MaxTenuringThreshold=1 \
+-Dusing.aikars.flags=https://mcflags.emc.gs \
+-Daikars.new.flags=true \
+-jar server.jar nogui</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="config-block">
+                            <h4>💪 Для серверов 8-16 ГБ RAM:</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">Bash</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                                </div>
+                                <pre><code>java -Xms6G -Xmx6G \
+-XX:+UseG1GC \
+-XX:+ParallelRefProcEnabled \
+-XX:MaxGCPauseMillis=150 \
+-XX:+UnlockExperimentalVMOptions \
+-XX:+DisableExplicitGC \
+-XX:+AlwaysPreTouch \
+-XX:G1NewSizePercent=40 \
+-XX:G1MaxNewSizePercent=50 \
+-XX:G1HeapRegionSize=16M \
+-XX:G1ReservePercent=15 \
+-XX:G1HeapWastePercent=5 \
+-XX:G1MixedGCCountTarget=8 \
+-XX:InitiatingHeapOccupancyPercent=20 \
+-XX:G1MixedGCLiveThresholdPercent=85 \
+-XX:G1RSetUpdatingPauseTimePercent=8 \
+-XX:SurvivorRatio=16 \
+-XX:MaxTenuringThreshold=1 \
+-Dusing.aikars.flags=https://mcflags.emc.gs \
+-XX:G1MixedGCCountTarget=8 \
+-jar server.jar nogui</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="info-box">
+                            <h4>📋 Пояснение ключевых параметров:</h4>
+                            <ul>
+                                <li><strong>-Xms/-Xmx</strong> — начальный и максимальный размер кучи</li>
+                                <li><strong>-XX:+UseG1GC</strong> — сборщик мусора G1 (оптимальный для Minecraft)</li>
+                                <li><strong>-XX:MaxGCPauseMillis</strong> — максимальная пауза GC</li>
+                                <li><strong>-XX:InitiatingHeapOccupancyPercent</strong> — порог запуска GC</li>
+                                <li><strong>-XX:+AlwaysPreTouch</strong> — предварительное выделение памяти</li>
+                            </ul>
+                        </div>
+
+                        <h2 id="server-cores">Выбор серверного ядра</h2>
+                        <p>
+                            Выбор правильного серверного ядра критически важен для производительности. Рассмотрим самые популярные варианты:
+                        </p>
+
+                        <div class="comparison-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Ядро</th>
+                                        <th>Производительность</th>
+                                        <th>Совместимость</th>
+                                        <th>Рекомендация</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Paper</strong></td>
+                                        <td>Высокая</td>
+                                        <td>Отличная</td>
+                                        <td>🥇 Лучшая рекомендация</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Purpur</strong></td>
+                                        <td>Очень высокая</td>
+                                        <td>Хорошая</td>
+                                        <td>🥈 Для максимальной производительности</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Folia</strong></td>
+                                        <td>Экстремальная</td>
+                                        <td>Средняя</td>
+                                        <td>🥉 Для крупных серверов</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Spigot</strong></td>
+                                        <td>Средняя</td>
+                                        <td>Отличная</td>
+                                        <td>⚠️ Устаревший вариант</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="recommendation-card">
+                            <h4>🎯 Наша рекомендация: PaperMC</h4>
+                            <p>
+                                PaperMC — это золотой стандарт для Minecraft серверов. Он предлагает отличную производительность, полную совместимость с плагинами и активную разработку.
+                            </p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">Bash</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                                </div>
+                                <pre><code># Установка PaperMC
+wget https://api.papermc.io/v2/projects/paper/versions/1.21.4/builds/545/downloads/paper-1.21.4-545.jar
+mv paper-1.21.4-545.jar server.jar
+
+# Запуск с оптимизированными параметрами
+./start.sh</code></pre>
+                            </div>
+                        </div>
+
+                        <h2 id="config-optimization">Оптимизация конфигурационных файлов</h2>
+
+                        <h3>spigot.yml</h3>
+                        <div class="config-block">
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">YAML</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                                </div>
+                                <pre><code># Оптимизированные настройки spigot.yml
+config-version: 12
+settings:
+  debug: false
+  save-user-cache-on-stop-only: false
+  moved-too-quickly-threshold: 10
+  moved-wrongly-threshold: 0
+  sample-village-chunks-saved: false
+  fix-low-ticked-chunks: false
+  player-shove: false
+  view-distance:
+    default: 6
+    maximum: 8
+  mob-spawning:
+    ticks-per:
+      monster-spawns: 200
+      creature-spawns: 400
+      water-spawns: 200
+      ambient-spawns: 200
+      water-ambient-spawns: 400
+      water-underground-creature-spawns: 200
+  world-settings:
+    default:
+      merge-radius:
+        exp: 3.0
+        item: 2.5
+      entity-tracking-range:
+        players: 48
+        animals: 48
+        monsters: 48
+        misc: 32
+        other: 64
+      growth:
+        cactus-modifier: 100
+        cane-modifier: 100
+        melon-modifier: 100
+        pumpkin-modifier: 100
+        wheat-modifier: 100
+        beetroot-modifier: 100
+        carrot-modifier: 100
+        potato-modifier: 100
+        netherwart-modifier: 100
+        vine-modifier: 100
+        cocoa-modifier: 100
+        bamboo-modifier: 100
+        sweet-berry-modifier: 100
+        kelp-modifier: 100
+        twisting-vines-modifier: 100
+        weeping-vines-modifier: 100</code></pre>
+                            </div>
+                        </div>
+
+                        <h3>paper.yml</h3>
+                        <div class="config-block">
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">YAML</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                                </div>
+                                <pre><code># Ключевые оптимизации paper.yml
+config-version: 28
+settings:
+  prevent-connected-size-changes: false
+  use-dimension-type-for-custom-spawns: false
+  max-chained-neighbor-updates: 500
+  fix-curing-zombie: false
+  region-file-cache-size: 256
+  use-paper-source-name: true
+  use-paper-advancement-criteria: true
+  max-auto-save-chunks-per-tick: 24
+  console-has-all-permissions: false
+  suggest-player-names-when-null-arguments: true
+  async-chunks:
+    threads: -1
+    generation:
+      threads: -1
+    load:
+      threads: -1
+  enable-timings: false
+  velocity-players-get-safety: true
+  loot-tables:
+    debug: false
+  max-entity-broadcast-radius: 1000
+  tab-ping:
+    disable: false
+    use-displayname: true
+  watchdog:
+    early-warning: true
+    early-warning-delay: 10000
+    early-warning-interval: 5000
+  lag-gauge:
+    enabled: true
+    interval: 60
+    sample-interval: 5
+  max-loaded-chunks:
+    world: -1
+    nether: -1
+    the_end: -1
+  chunks-per-tick:
+    world: 500
+    nether: 250
+    the_end: 250</code></pre>
+                            </div>
+                        </div>
+
+                        <h2 id="world-settings">Настройка мира и чанков</h2>
+
+                        <h3>bukkit.yml</h3>
+                        <div class="config-block">
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">YAML</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                                </div>
+                                <pre><code># Оптимизированные bukkit.yml
+settings:
+  allow-end: true
+  warn-on-overload: false
+  permissions-file: permissions.yml
+  update-folder: update
+  plugin-profiling: false
+  connection-throttle: 4000
+  query-plugins: true
+  deprecated-verbose: false
+  shutdown-message: Server closed
+  minimum-api: none
+spawn-limits:
+  monsters: 70
+  animals: 15
+  water-animals: 5
+  water-ambient: 20
+  ambient: 15
+chunk-gc:
+  period-in-ticks: 600
+ticks-per:
+  monster-spawns: 1
+  creature-spawns: 400
+  water-spawns: 1
+  water-ambient-spawns: 1
+  ambient-spawns: 1
+  water-underground-creature-spawns: 1
+  autosave: 6000</code></pre>
+                            </div>
+                        </div>
+
+                        <h3>server.properties</h3>
+                        <div class="config-block">
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">Properties</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                                </div>
+                                <pre><code># Оптимизированный server.properties
+online-mode=true
+motd=Оптимизированный сервер AkyDev
+server-port=25565
+server-ip=
+difficulty=hard
+allow-flight=false
+allow-nether=true
+force-gamemode=false
+gamemode=survival
+enable-command-block=false
+enable-query=false
+enable-rcon=false
+level-name=world
+level-seed=
+level-type=minecraft:normal
+generator-settings=
+resource-pack=
+resource-pack-sha1=
+player-idle-timeout=30
+max-build-height=256
+spawn-protection=0
+spawn-npcs=true
+spawn-animals=true
+spawn-monsters=true
+snooper-enabled=false
+hardcore=false
+enable-status=true
+broadcast-console-to-ops=true
+broadcast-rcon-to-ops=true
+view-distance=6
+max-players=20
+max-tick-time=60000
+max-world-size=29999984</code></pre>
+                            </div>
+                        </div>
+
+                        <h2 id="performance-monitoring">Мониторинг производительности</h2>
+                        <p>
+                            Регулярный мониторинг помогает выявлять проблемы производительности на ранней стадии. Рекомендуем использовать следующие инструменты:
+                        </p>
+
+                        <div class="tools-grid">
+                            <div class="tool-card">
+                                <h4>📊 Spark Profiler</h4>
+                                <p>Мощный профилировщик для анализа производительности сервера</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span class="code-language">Command</span>
+                                    </div>
+                                    <pre><code>/spark profiler start --timeout 60</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="tool-card">
+                                <h4>📈 Chunky</h4>
+                                <p>Инструмент для предгенерации мира и анализа чанков</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span class="code-language">Command</span>
+                                    </div>
+                                    <pre><code>/chunky start --circle 5000</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="tool-card">
+                                <h4>🔍 Clarity</h4>
+                                <p>Мониторинг производительности в реальном времени</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span class="code-language">Command</span>
+                                    </div>
+                                    <pre><code>/clarity monitor</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 id="advanced-techniques">Продвинутые техники оптимизации</h2>
+
+                        <h3>1. Предгенерация мира</h3>
+                        <div class="info-box">
+                            <p>
+                                Предгенерация мира предотвращает лаги при исследовании новых территорий игроками.
+                            </p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">Bash</span>
+                                </div>
+                                <pre><code># Установка Chunky
+wget https://chunky.llbit.se/Chunky-2.4.29.jar
+
+# Предгенерация мира радиусом 5000 блоков
+java -jar Chunky-2.4.29.jar -w world -c world -r 5000</code></pre>
+                            </div>
+                        </div>
+
+                        <h3>2. Оптимизация плагинов</h3>
+                        <div class="info-box">
+                            <p>
+                                Некоторые плагины могут значительно влиять на производительность. Регулярно проверяйте их с помощью Spark.
+                            </p>
+                            <ul>
+                                <li>Используйте асинхронные операции для тяжёлой работы</li>
+                                <li>Оптимизируйте частоту тиков плагинов</li>
+                                <li>Избегайте избыточных проверок в циклах</li>
+                                <li>Используйте кэширование для часто запрашиваемых данных</li>
+                            </ul>
+                        </div>
+
+                        <h3>3. Настройка Redstone</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-language">YAML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                            </div>
+                            <pre><code># Ограничение Redstone в paper.yml
+settings:
+  redstone:
+    physics:
+      redstone-nature:
+        # Отключение некоторых Redstone механик
+        disable-legacy-update: true
+        disable-update-on-block-break: true
+        disable-update-on-place: true
+    # Уменьшение частоты проверок
+    repeat-delay-max: 2
+    repeat-delay-min: 1</code></pre>
+                        </div>
+
+                        <h2 id="conclusion">Заключение</h2>
+                        <p>
+                            Оптимизация Minecraft сервера — это непрерывный процесс, требующий регулярного мониторинга и настройки. Следуя этому руководству, вы сможете добиться значительного улучшения производительности и обеспечить плавную работу сервера даже при большом количестве игроков.
+                        </p>
+
+                        <div class="summary-box">
+                            <h4>🎯 Ключевые выводы:</h4>
+                            <ul>
+                                <li>Используйте PaperMC с оптимизированными JVM параметрами</li>
+                                <li>Настройте view-distance в соответствии с мощностью сервера</li>
+                                <li>Регулярно мониторьте производительность с помощью Spark</li>
+                                <li>Предгенерируйте мир для предотвращения лагов</li>
+                                <li>Оптимизируйте конфигурационные файлы под ваши нужды</li>
+                                <li>Следите за производительностью плагинов</li>
+                            </ul>
+                        </div>
+
+                        <div class="article-footer">
+                            <div class="article-tags">
+                                <span class="tag">Оптимизация</span>
+                                <span class="tag">JVM</span>
+                                <span class="tag">PaperMC</span>
+                                <span class="tag">Performance</span>
+                            </div>
+                            <div class="article-actions">
+                                <button class="btn-outline" onclick="shareArticle()">📢 Поделиться</button>
+                                <button class="btn-outline" onclick="likeArticle()">❤️ Нравится</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-section">
+                            <h3>Об авторе</h3>
+                            <div class="author-card">
+                                <div class="author-avatar-large">👨‍💻</div>
+                                <div class="author-info">
+                                    <div class="author-name">AkyDev Team</div>
+                                    <div class="author-bio">Специалисты по оптимизации серверов с опытом работы с проектами на 1000+ игроков</div>
+                                    <div class="author-links">
+                                        <a href="https://github.com/JavaSoska777">GitHub</a>
+                                        <a href="https://t.me/akydevv">Telegram</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>Похожие статьи</h3>
+                            <div class="related-articles">
+                                <div class="related-article">
+                                    <a href="async-programming-minecraft.html">
+                                        <h4>Асинхронное программирование в плагинах Minecraft</h4>
+                                        <span class="related-date">15 марта 2026</span>
+                                    </a>
+                                </div>
+                                <div class="related-article">
+                                    <a href="chunk-optimization.html">
+                                        <h4>Оптимизация загрузки чанков и мира</h4>
+                                        <span class="related-date">12 февраля 2026</span>
+                                    </a>
+                                </div>
+                                <div class="related-article">
+                                    <a href="database-integration.html">
+                                        <h4>Интеграция баз данных в Minecraft плагины</h4>
+                                        <span class="related-date">20 февраля 2026</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>Категории</h3>
+                            <div class="category-list">
+                                <a href="#" class="category-item">
+                                    <span class="category-name">Оптимизация</span>
+                                    <span class="category-count">8</span>
+                                </a>
+                                <a href="#" class="category-item">
+                                    <span class="category-name">Разработка</span>
+                                    <span class="category-count">12</span>
+                                </a>
+                                <a href="#" class="category-item">
+                                    <span class="category-name">Геймдизайн</span>
+                                    <span class="category-count">6</span>
+                                </a>
+                                <a href="#" class="category-item">
+                                    <span class="category-name">Туториалы</span>
+                                    <span class="category-count">15</span>
+                                </a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Articles -->
+        <section class="related-articles-section">
+            <div class="container">
+                <h2>Читайте также</h2>
+                <div class="related-grid">
+                    <article class="related-card">
+                        <div class="related-image">
+                            <div class="related-placeholder">
+                                <span>💻</span>
+                            </div>
+                        </div>
+                        <div class="related-content">
+                            <div class="related-meta">
+                                <span class="related-category">Разработка</span>
+                                <span class="related-date">15 марта 2026</span>
+                            </div>
+                            <h3><a href="async-programming-minecraft.html">Асинхронное программирование в плагинах Minecraft</a></h3>
+                            <p>Как использовать CompletableFuture и Bukkit Scheduler для создания отзывчивых плагинов.</p>
+                        </div>
+                    </article>
+
+                    <article class="related-card">
+                        <div class="related-image">
+                            <div class="related-placeholder">
+                                <span>🚀</span>
+                            </div>
+                        </div>
+                        <div class="related-content">
+                            <div class="related-meta">
+                                <span class="related-category">Оптимизация</span>
+                                <span class="related-date">12 февраля 2026</span>
+                            </div>
+                            <h3><a href="chunk-optimization.html">Оптимизация загрузки чанков и мира</a></h3>
+                            <p>Техники оптимизации генерации мира, предзагрузки чанков и управления памятью.</p>
+                        </div>
+                    </article>
+
+                    <article class="related-card">
+                        <div class="related-image">
+                            <div class="related-placeholder">
+                                <span>🔧</span>
+                            </div>
+                        </div>
+                        <div class="related-content">
+                            <div class="related-meta">
+                                <span class="related-category">Разработка</span>
+                                <span class="related-date">20 февраля 2026</span>
+                            </div>
+                            <h3><a href="database-integration.html">Интеграция баз данных в Minecraft плагины</a></h3>
+                            <p>Работа с MySQL, PostgreSQL и SQLite для хранения данных игроков и статистики.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">AKY<span class="logo-accent">DEV</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Профессиональная студия разработки для Minecraft
+                    </p>
+                </div>
+                
+                <div class="footer-nav">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Навигация</h4>
+                        <nav class="footer-links">
+                            <a href="../../index.html">Главная</a>
+                            <a href="../about.html">О нас</a>
+                            <a href="../services.html">Услуги</a>
+                            <a href="../portfolio.html">Портфолио</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Ресурсы</h4>
+                        <nav class="footer-links">
+                            <a href="../blog.html">Блог</a>
+                            <a href="../contact.html">Контакты</a>
+                            <a href="../careers.html">Вакансии</a>
+                            <a href="../privacy.html">Политика</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Контакты</h4>
+                        <div class="footer-contact">
+                            <a href="https://discord.gg/VQdwjt472D" class="contact-link">Discord: сервер</a>
+                            <a href="https://t.me/akydevv" class="contact-link">Telegram: @akydevv</a>
+                            <a href="#" class="contact-link">Email: contact@akydevv.ru</a>
+                        </div>
+                        <div class="footer-socials">
+                            <a href="https://discord.gg/VQdwjt472D" class="social-link">Discord</a>
+                            <a href="https://t.me/akydevv" class="social-link">Telegram</a>
+                            <a href="https://github.com/JavaSoska777" class="social-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-border"></div>
+                <div class="footer-copyright">
+                    <p>© 2026 AkyDev. Все права защищены.</p>
+                    <div class="footer-legal">
+                        <a href="../privacy.html">Политика конфиденциальности</a>
+                        <a href="../terms.html">Оферта</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/script.js"></script>
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '✅ Скопировано!';
+                button.style.background = 'var(--accent-primary)';
+                button.style.color = 'var(--bg-primary)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                    button.style.color = '';
+                }, 2000);
+            });
+        }
+        
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Полное руководство по оптимизации сервера Minecraft',
+                    text: 'Настройка JVM параметров, оптимизация конфигов и выбор правильного серверного ядра',
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('Ссылка скопирована в буфер обмена!');
+            }
+        }
+        
+        function likeArticle() {
+            const button = event.target;
+            button.textContent = '❤️ Понравилось!';
+            button.style.background = 'var(--accent-primary)';
+            button.style.color = 'var(--bg-primary)';
+            button.disabled = true;
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

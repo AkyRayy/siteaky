@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Асинхронное программирование в плагинах Minecraft - AkyDev</title>
+    <meta name="description" content="Подробное руководство по асинхронному программированию в Minecraft плагинах с использованием CompletableFuture и Bukkit Scheduler.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230A0A0A' width='100' height='100'/><text x='50' y='50' text-anchor='middle' dy='.3em' fill='%23C8FF00' font-family='monospace' font-size='40'>AK</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../../index.html" class="logo-text">AKY<span class="logo-accent">DEV</span></a>
+            </div>
+            <nav class="nav-menu">
+                <a href="../../index.html" class="nav-link">Главная</a>
+                <a href="../about.html" class="nav-link">О нас</a>
+                <a href="../services.html" class="nav-link">Услуги</a>
+                <a href="../portfolio.html" class="nav-link">Портфолио</a>
+                <a href="../blog.html" class="nav-link active">Блог</a>
+                <a href="../contact.html" class="nav-link">Контакты</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="../contact.html" class="btn-cta">Обсудить проект</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-container">
+            <nav class="mobile-nav">
+                <a href="../../index.html" class="mobile-nav-link">Главная</a>
+                <a href="../about.html" class="mobile-nav-link">О нас</a>
+                <a href="../services.html" class="mobile-nav-link">Услуги</a>
+                <a href="../portfolio.html" class="mobile-nav-link">Портфолио</a>
+                <a href="../blog.html" class="mobile-nav-link">Блог</a>
+                <a href="../contact.html" class="mobile-nav-link">Контакты</a>
+            </nav>
+            <div class="mobile-socials">
+                <a href="https://discord.gg/VQdwjt472D" class="social-link">Discord</a>
+                <a href="https://t.me/akydevv" class="social-link">Telegram</a>
+                <a href="https://github.com/JavaSoska777" class="social-link">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Article Hero -->
+        <section class="article-hero">
+            <div class="container">
+                <div class="article-breadcrumb">
+                    <a href="../blog.html">Блог</a>
+                    <span class="breadcrumb-separator">→</span>
+                    <span class="breadcrumb-current">Разработка</span>
+                </div>
+                <div class="article-header">
+                    <div class="article-category">
+                        <span class="category-badge">Разработка</span>
+                        <span class="article-date">15 марта 2026</span>
+                    </div>
+                    <h1 class="article-title">Асинхронное программирование в плагинах Minecraft</h1>
+                    <p class="article-subtitle">
+                        Как использовать CompletableFuture и Bukkit Scheduler для создания отзывчивых плагинов без лагов сервера
+                    </p>
+                    <div class="article-meta">
+                        <div class="article-author">
+                            <div class="author-avatar">👨‍💻</div>
+                            <div class="author-info">
+                                <div class="author-name">AkyDev Team</div>
+                                <div class="author-role">Разработчики плагинов</div>
+                            </div>
+                        </div>
+                        <div class="article-stats">
+                            <span class="stat-item">⏱️ 8 мин чтения</span>
+                            <span class="stat-item">👁️ 1.2K просмотров</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Content -->
+        <section class="article-content">
+            <div class="container">
+                <div class="article-layout">
+                    <div class="article-main">
+                        <div class="article-intro">
+                            <p>
+                                В современном Minecraft сервере производительность — это ключ к успеху. Когда плагины выполняют тяжёлые операции в основном потоке, это приводит к лагам, фризам и плохому пользовательскому опыту. В этой статье мы разберём, как использовать асинхронное программирование для создания высокопроизводительных плагинов.
+                            </p>
+                        </div>
+
+                        <div class="article-toc">
+                            <h3>Содержание статьи</h3>
+                            <ul>
+                                <li><a href="#what-is-async">Что такое асинхронное программирование?</a></li>
+                                <li><a href="#bukkit-scheduler">Bukkit Scheduler основы</a></li>
+                                <li><a href="#completablefuture">CompletableFuture в Minecraft</a></li>
+                                <li><a href="#best-practices">Лучшие практики</a></li>
+                                <li><a href="#examples">Практические примеры</a></li>
+                                <li><a href="#conclusion">Заключение</a></li>
+                            </ul>
+                        </div>
+
+                        <h2 id="what-is-async">Что такое асинхронное программирование?</h2>
+                        <p>
+                            Асинхронное программирование — это парадигма, позволяющая выполнять операции без блокировки основного потока. В Minecraft это особенно важно, так как основной поток отвечает за обработку игровых событий, физику и рендеринг.
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-language">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                            </div>
+                            <pre><code>// Синхронный код (плохо)
+public void onPlayerJoin(PlayerJoinEvent event) {
+    // Блокирует основной поток!
+    String uuid = fetchUUIDFromDatabase(event.getPlayer().getName());
+    event.getPlayer().sendMessage("Ваш UUID: " + uuid);
+}
+
+// Асинхронный код (хорошо)
+public void onPlayerJoin(PlayerJoinEvent event) {
+    Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+        String uuid = fetchUUIDFromDatabase(event.getPlayer().getName());
+        
+        // Возвращаем в основной поток для безопасных операций
+        Bukkit.getScheduler().runTask(plugin, () -> {
+            event.getPlayer().sendMessage("Ваш UUID: " + uuid);
+        });
+    });
+}</code></pre>
+                        </div>
+
+                        <h2 id="bukkit-scheduler">Bukkit Scheduler основы</h2>
+                        <p>
+                            Bukkit Scheduler предоставляет несколько методов для асинхронного выполнения задач:
+                        </p>
+
+                        <div class="info-box">
+                            <h4>📋 Типы задач Bukkit Scheduler:</h4>
+                            <ul>
+                                <li><strong>runTask()</strong> — синхронное выполнение в следующем тике</li>
+                                <li><strong>runTaskAsynchronously()</strong> — асинхронное выполнение</li>
+                                <li><strong>runTaskLater()</strong> — отложенное синхронное выполнение</li>
+                                <li><strong>runTaskLaterAsynchronously()</strong> — отложенное асинхронное выполнение</li>
+                                <li><strong>runTaskTimer()</strong> — повторяющееся синхронное выполнение</li>
+                                <li><strong>runTaskTimerAsynchronously()</strong> — повторяющееся асинхронное выполнение</li>
+                            </ul>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-language">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                            </div>
+                            <pre><code>// Пример асинхронной задачи с задержкой
+public void scheduleAsyncTask() {
+    Bukkit.getScheduler().runTaskLaterAsynchronously(plugin, () -> {
+        // Тяжёлая операция (запрос к API, база данных и т.д.)
+        processData();
+        
+        // Возвращаем в основной поток
+        Bukkit.getScheduler().runTask(plugin, () -> {
+            // Безопасная операция с Bukkit API
+            Bukkit.broadcastMessage("Обработка завершена!");
+        });
+    }, 20L); // Задержка в 1 секунду (20 тиков)
+}</code></pre>
+                        </div>
+
+                        <h2 id="completablefuture">CompletableFuture в Minecraft</h2>
+                        <p>
+                            CompletableFuture — мощный инструмент Java 8+ для асинхронного программирования. Он позволяет создавать цепочки асинхронных операций:
+                        </p>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-language">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                            </div>
+                            <pre><code>public CompletableFuture&lt;PlayerData&gt; loadPlayerDataAsync(UUID uuid) {
+    return CompletableFuture
+        .supplyAsync(() -> loadFromDatabase(uuid)) // Асинхронная загрузка
+        .thenApply(data -> processData(data))       // Обработка данных
+        .thenApply(data -> cacheData(data))          // Кэширование
+        .whenComplete((data, throwable) -> {
+            if (throwable != null) {
+                logger.error("Ошибка загрузки данных игрока", throwable);
+            } else {
+                // Возвращаем в основной поток для использования
+                Bukkit.getScheduler().runTask(plugin, () -> {
+                    applyDataToPlayer(uuid, data);
+                });
+            }
+        });
+}</code></pre>
+                        </div>
+
+                        <h2 id="best-practices">Лучшие практики</h2>
+                        
+                        <div class="practice-card">
+                            <h4>✅ Правильно: Используйте пул потоков</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">Java</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                                </div>
+                                <pre><code>// Создаём свой пул потоков
+private ExecutorService asyncPool = Executors.newFixedThreadPool(4);
+
+public void processAsync() {
+    asyncPool.submit(() -> {
+        // Тяжёлая операция
+        heavyOperation();
+    });
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="practice-card">
+                            <h4>❌ Неправильно: Блокировка основного потока</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span class="code-language">Java</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                                </div>
+                                <pre><code>// Никогда так не делайте!
+public void onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    // Это заблокирует весь сервер!
+    String result = heavyWebRequest(); 
+    sender.sendMessage(result);
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <h2 id="examples">Практические примеры</h2>
+
+                        <h3>Пример 1: Асинхронная загрузка данных</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-language">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                            </div>
+                            <pre><code>public class AsyncDataManager {
+    private final Map&lt;UUID, PlayerData&gt; cache = new ConcurrentHashMap&lt;&gt;();
+    
+    public void loadPlayerData(UUID uuid, Consumer&lt;PlayerData&gt; callback) {
+        // Проверяем кэш
+        PlayerData cached = cache.get(uuid);
+        if (cached != null) {
+            callback.accept(cached);
+            return;
+        }
+        
+        // Асинхронная загрузка
+        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+            try {
+                PlayerData data = database.loadPlayerData(uuid);
+                cache.put(uuid, data);
+                
+                // Возвращаем в основной поток
+                Bukkit.getScheduler().runTask(plugin, () -> {
+                    callback.accept(data);
+                });
+            } catch (Exception e) {
+                plugin.getLogger().error("Ошибка загрузки данных", e);
+            }
+        });
+    }
+}</code></pre>
+                        </div>
+
+                        <h3>Пример 2: Асинхронные API запросы</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-language">Java</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Копировать</button>
+                            </div>
+                            <pre><code>public class AsyncAPIManager {
+    private final HttpClient httpClient = HttpClient.newHttpClient();
+    
+    public CompletableFuture&lt;String&gt; makeApiRequest(String url) {
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create(url))
+            .GET()
+            .build();
+            
+        return httpClient
+            .sendAsync(request, HttpResponse.BodyHandlers.ofString())
+            .thenApply(HttpResponse::body)
+            .exceptionally(throwable -> {
+                logger.error("API запрос не удался", throwable);
+                return null;
+            });
+    }
+    
+    public void checkPlayerStatus(Player player) {
+        makeApiRequest("https://api.example.com/status/" + player.getUniqueId())
+            .thenAccept(response -> {
+                Bukkit.getScheduler().runTask(plugin, () -> {
+                    if (response != null) {
+                        player.sendMessage("Статус: " + response);
+                    }
+                });
+            });
+    }
+}</code></pre>
+                        </div>
+
+                        <h2 id="conclusion">Заключение</h2>
+                        <p>
+                            Асинхронное программирование — это незаменимый инструмент для создания высокопроизводительных Minecraft плагинов. Правильное использование Bukkit Scheduler и CompletableFuture позволяет избежать лагов и обеспечить плавную работу сервера даже при выполнении сложных операций.
+                        </p>
+
+                        <div class="summary-box">
+                            <h4>🎯 Ключевые выводы:</h4>
+                            <ul>
+                                <li>Никогда не выполняйте тяжёлые операции в основном потоке</li>
+                                <li>Используйте Bukkit Scheduler для асинхронных задач</li>
+                                <li>CompletableFuture отлично подходит для цепочек операций</li>
+                                <li>Всегда возвращайтесь в основной поток для работы с Bukkit API</li>
+                                <li>Создавайте пулы потоков для лучшей производительности</li>
+                            </ul>
+                        </div>
+
+                        <div class="article-footer">
+                            <div class="article-tags">
+                                <span class="tag">Асинхронное программирование</span>
+                                <span class="tag">Bukkit API</span>
+                                <span class="tag">Performance</span>
+                                <span class="tag">Java</span>
+                            </div>
+                            <div class="article-actions">
+                                <button class="btn-outline" onclick="shareArticle()">📢 Поделиться</button>
+                                <button class="btn-outline" onclick="likeArticle()">❤️ Нравится</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="article-sidebar">
+                        <div class="sidebar-section">
+                            <h3>Об авторе</h3>
+                            <div class="author-card">
+                                <div class="author-avatar-large">👨‍💻</div>
+                                <div class="author-info">
+                                    <div class="author-name">AkyDev Team</div>
+                                    <div class="author-bio">Профессиональные разработчики плагинов для Minecraft с опытом более 5 лет</div>
+                                    <div class="author-links">
+                                        <a href="https://github.com/JavaSoska777">GitHub</a>
+                                        <a href="https://t.me/akydevv">Telegram</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>Похожие статьи</h3>
+                            <div class="related-articles">
+                                <div class="related-article">
+                                    <a href="server-optimization-guide.html">
+                                        <h4>Полное руководство по оптимизации сервера Minecraft</h4>
+                                        <span class="related-date">10 марта 2026</span>
+                                    </a>
+                                </div>
+                                <div class="related-article">
+                                    <a href="database-integration.html">
+                                        <h4>Интеграция баз данных в Minecraft плагины</h4>
+                                        <span class="related-date">20 февраля 2026</span>
+                                    </a>
+                                </div>
+                                <div class="related-article">
+                                    <a href="custom-gui-tutorial.html">
+                                        <h4>Создание кастомных GUI меню в плагинах</h4>
+                                        <span class="related-date">28 февраля 2026</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>Категории</h3>
+                            <div class="category-list">
+                                <a href="#" class="category-item">
+                                    <span class="category-name">Разработка</span>
+                                    <span class="category-count">12</span>
+                                </a>
+                                <a href="#" class="category-item">
+                                    <span class="category-name">Оптимизация</span>
+                                    <span class="category-count">8</span>
+                                </a>
+                                <a href="#" class="category-item">
+                                    <span class="category-name">Геймдизайн</span>
+                                    <span class="category-count">6</span>
+                                </a>
+                                <a href="#" class="category-item">
+                                    <span class="category-name">Туториалы</span>
+                                    <span class="category-count">15</span>
+                                </a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Articles -->
+        <section class="related-articles-section">
+            <div class="container">
+                <h2>Читайте также</h2>
+                <div class="related-grid">
+                    <article class="related-card">
+                        <div class="related-image">
+                            <div class="related-placeholder">
+                                <span>⚡</span>
+                            </div>
+                        </div>
+                        <div class="related-content">
+                            <div class="related-meta">
+                                <span class="related-category">Оптимизация</span>
+                                <span class="related-date">10 марта 2026</span>
+                            </div>
+                            <h3><a href="server-optimization-guide.html">Полное руководство по оптимизации сервера Minecraft</a></h3>
+                            <p>Настройка JVM параметров, оптимизация конфигов и выбор правильного серверного ядра.</p>
+                        </div>
+                    </article>
+
+                    <article class="related-card">
+                        <div class="related-image">
+                            <div class="related-placeholder">
+                                <span>🔧</span>
+                            </div>
+                        </div>
+                        <div class="related-content">
+                            <div class="related-meta">
+                                <span class="related-category">Разработка</span>
+                                <span class="related-date">20 февраля 2026</span>
+                            </div>
+                            <h3><a href="database-integration.html">Интеграция баз данных в Minecraft плагины</a></h3>
+                            <p>Работа с MySQL, PostgreSQL и SQLite для хранения данных игроков и статистики.</p>
+                        </div>
+                    </article>
+
+                    <article class="related-card">
+                        <div class="related-image">
+                            <div class="related-placeholder">
+                                <span>📚</span>
+                            </div>
+                        </div>
+                        <div class="related-content">
+                            <div class="related-meta">
+                                <span class="related-category">Туториалы</span>
+                                <span class="related-date">28 февраля 2026</span>
+                            </div>
+                            <h3><a href="custom-gui-tutorial.html">Создание кастомных GUI меню в плагинах</a></h3>
+                            <p>Пошаговое руководство по созданию интерактивных меню с инвентарями и кликами.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">AKY<span class="logo-accent">DEV</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Профессиональная студия разработки для Minecraft
+                    </p>
+                </div>
+                
+                <div class="footer-nav">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Навигация</h4>
+                        <nav class="footer-links">
+                            <a href="../../index.html">Главная</a>
+                            <a href="../about.html">О нас</a>
+                            <a href="../services.html">Услуги</a>
+                            <a href="../portfolio.html">Портфолио</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Ресурсы</h4>
+                        <nav class="footer-links">
+                            <a href="../blog.html">Блог</a>
+                            <a href="../contact.html">Контакты</a>
+                            <a href="../careers.html">Вакансии</a>
+                            <a href="../privacy.html">Политика</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Контакты</h4>
+                        <div class="footer-contact">
+                            <a href="https://discord.gg/VQdwjt472D" class="contact-link">Discord: сервер</a>
+                            <a href="https://t.me/akydevv" class="contact-link">Telegram: @akydevv</a>
+                            <a href="#" class="contact-link">Email: contact@akydevv.ru</a>
+                        </div>
+                        <div class="footer-socials">
+                            <a href="https://discord.gg/VQdwjt472D" class="social-link">Discord</a>
+                            <a href="https://t.me/akydevv" class="social-link">Telegram</a>
+                            <a href="https://github.com/JavaSoska777" class="social-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-border"></div>
+                <div class="footer-copyright">
+                    <p>© 2026 AkyDev. Все права защищены.</p>
+                    <div class="footer-legal">
+                        <a href="../privacy.html">Политика конфиденциальности</a>
+                        <a href="../terms.html">Оферта</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/script.js"></script>
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.parentElement.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '✅ Скопировано!';
+                button.style.background = 'var(--accent-primary)';
+                button.style.color = 'var(--bg-primary)';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                    button.style.color = '';
+                }, 2000);
+            });
+        }
+        
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Асинхронное программирование в плагинах Minecraft',
+                    text: 'Как использовать CompletableFuture и Bukkit Scheduler для создания отзывчивых плагинов',
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert('Ссылка скопирована в буфер обмена!');
+            }
+        }
+        
+        function likeArticle() {
+            const button = event.target;
+            button.textContent = '❤️ Понравилось!';
+            button.style.background = 'var(--accent-primary)';
+            button.style.color = 'var(--bg-primary)';
+            button.disabled = true;
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

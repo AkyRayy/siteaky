@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги - AkyDev | Студия разработки для Minecraft</title>
+    <meta name="description" content="Полный цикл разработки для Minecraft серверов: кастомные плагины, игровые режимы, оптимизация, античиты, дискорд-интеграции. Профессиональные решения для вашего сервера.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230A0A0A' width='100' height='100'/><text x='50' y='50' text-anchor='middle' dy='.3em' fill='%23C8FF00' font-family='monospace' font-size='40'>AK</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" class="logo-text">AKY<span class="logo-accent">DEV</span></a>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Главная</a>
+                <a href="about.html" class="nav-link">О нас</a>
+                <a href="services.html" class="nav-link active">Услуги</a>
+                <a href="portfolio.html" class="nav-link">Портфолио</a>
+                <a href="blog.html" class="nav-link">Блог</a>
+                <a href="contact.html" class="nav-link">Контакты</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn-cta">Обсудить проект</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-container">
+            <nav class="mobile-nav">
+                <a href="../index.html" class="mobile-nav-link">Главная</a>
+                <a href="about.html" class="mobile-nav-link">О нас</a>
+                <a href="services.html" class="mobile-nav-link">Услуги</a>
+                <a href="portfolio.html" class="mobile-nav-link">Портфолио</a>
+                <a href="blog.html" class="mobile-nav-link">Блог</a>
+                <a href="contact.html" class="mobile-nav-link">Контакты</a>
+            </nav>
+            <div class="mobile-socials">
+                <a href="#" class="social-link">Discord</a>
+                <a href="#" class="social-link">Telegram</a>
+                <a href="#" class="social-link">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero services-hero">
+            <div class="hero-background">
+                <div class="glow-effect"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Услуги
+                    </h1>
+                    <p class="hero-subtitle">
+                        Полный цикл разработки для Minecraft серверов — от идеи до продакшена
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Custom Plugins Service -->
+        <section class="service-detail">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-number">01</div>
+                    <div class="service-info">
+                        <h2 class="service-title">Кастомные плагины</h2>
+                        <p class="service-subtitle">
+                            Разработка уникальных плагинов с нуля под задачи вашего сервера
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="service-content">
+                    <div class="service-description">
+                        <p class="service-text">
+                            Создаем плагины любой сложности — от простых утилит до сложных систем управления. Наш подход основан на глубоком понимании Minecraft API и лучших практиках разработки. Каждый плагин оптимизирован под высокую нагрузку и протестирован в реальных условиях.
+                        </p>
+                        <p class="service-text">
+                            Мы работаем со всеми версиями Minecraft (1.16.5 - 1.21+) и поддерживаем последние API Spigot, Paper, Purpur. Код документируется, тестируется и поставляется с полной технической поддержкой.
+                        </p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3 class="features-title">Что входит в разработку</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">🏗️</div>
+                                <h4 class="feature-title">Проектирование архитектуры</h4>
+                                <p class="feature-description">
+                                    Анализ требований, создание технического задания, проектирование масштабируемой архитектуры
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">💻</div>
+                                <h4 class="feature-title">Написание плагина на Java/Kotlin</h4>
+                                <p class="feature-description">
+                                    Чистый, оптимизированный код с использованием современных практик и паттернов
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">⚙️</div>
+                                <h4 class="feature-title">Конфигурируемость (YAML/JSON)</h4>
+                                <p class="feature-description">
+                                    Гибкие настройки, возможность кастомизации без необходимости изменения кода
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🌍</div>
+                                <h4 class="feature-title">Мультиязычность</h4>
+                                <p class="feature-description">
+                                    Поддержка нескольких языков, простая система локализации
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📚</div>
+                                <h4 class="feature-title">Документация</h4>
+                                <p class="feature-description">
+                                    Полная техническая документация, инструкции по настройке и использованию
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🔓</div>
+                                <h4 class="feature-title">Исходный код (опционально)</h4>
+                                <p class="feature-description">
+                                    Передача полного исходного кода для дальнейшей доработки и поддержки
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-examples">
+                        <h3 class="examples-title">Примеры проектов</h3>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <h4 class="example-title">Кастомный крафт</h4>
+                                <p class="example-description">
+                                    Уникальные рецепты, настраиваемые верстаки, система прогрессирования
+                                </p>
+                            </div>
+                            <div class="example-item">
+                                <h4 class="example-title">Уникальные мобы</h4>
+                                <p class="example-description">
+                                    Новые существа с кастомным поведением, лутом, способностями
+                                </p>
+                            </div>
+                            <div class="example-item">
+                                <h4 class="example-title">Экономическая система</h4>
+                                <p class="example-description">
+                                    Валюта, магазины, аукционы, банки, налоги, торговля между игроками
+                                </p>
+                            </div>
+                            <div class="example-item">
+                                <h4 class="example-title">Система квестов</h4>
+                                <p class="example-description">
+                                    Линейные и ветвящиеся квесты, награды, прогрессия, NPC-диалоги
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn-primary">Заказать разработку</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Modes Service -->
+        <section class="service-detail">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-number">02</div>
+                    <div class="service-info">
+                        <h2 class="service-title">Игровые режимы</h2>
+                        <p class="service-subtitle">
+                            Полные игровые режимы: BedWars, SkyWars, RPG, Survival+, Анархия, Prison, SkyBlock
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="service-content">
+                    <div class="service-description">
+                        <p class="service-text">
+                            Разрабатываем полноценные игровые режимы "под ключ" — от концепции до готового решения. Каждый режим включает геймдизайн, балансировку, систему прогрессии и уникальные механики. Мы создаем увлекательный игровой опыт, который удерживает игроков.
+                        </p>
+                        <p class="service-text">
+                            Наши игровые режимы оптимизированы для больших онлайнов (100+ игроков), включают анти-лаг системы и масштабируются под любую нагрузку. Каждый режим тестируется на реальных серверах перед запуском.
+                        </p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3 class="features-title">Что включено</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">🎮</div>
+                                <h4 class="feature-title">Геймдизайн</h4>
+                                <p class="feature-description">
+                                    Разработка механик, баланса, системы прогрессии, экономических моделей
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🧩</div>
+                                <h4 class="feature-title">Плагины</h4>
+                                <p class="feature-description">
+                                    Полный набор плагинов для работы режима: ядро, утилиты, системы
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🗺️</div>
+                                <h4 class="feature-title">Карты (опционально)</h4>
+                                <p class="feature-description">
+                                    Разработка или адаптация карт под конкретный игровой режим
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">⚖️</div>
+                                <h4 class="feature-title">Балансировка</h4>
+                                <p class="feature-description">
+                                    Тестирование и настройка баланса игровых механик и экономики
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🧪</div>
+                                <h4 class="feature-title">Тестирование</h4>
+                                <p class="feature-description">
+                                    Нагрузочное тестирование, поиск багов, оптимизация производительности
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-examples">
+                        <h3 class="examples-title">Типы режимов</h3>
+                        <div class="examples-list">
+                            <div class="example-item">
+                                <h4 class="example-title">BedWars / SkyWars</h4>
+                                <p class="example-description">
+                                    Арены, системы рейтинга, магазины, киты, косметика, турниры
+                                </p>
+                            </div>
+                            <div class="example-item">
+                                <h4 class="example-title">RPG / Survival+</h4>
+                                <p class="example-description">
+                                    Классы, навыки, прокачка, квесты, фракции, уникальные предметы
+                                </p>
+                            </div>
+                            <div class="example-item">
+                                <h4 class="example-title">Анархия / Prison</h4>
+                                <p class="example-description">
+                                    Система привилегий, экономики, кланы, территории, PvP механики
+                                </p>
+                            </div>
+                            <div class="example-item">
+                                <h4 class="example-title">SkyBlock / OneBlock</h4>
+                                <p class="example-description">
+                                    Генерация островов, прогрессия, челленджи, торговля, события
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn-primary">Заказать режим</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Server Cores Service -->
+        <section class="service-detail">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-number">03</div>
+                    <div class="service-info">
+                        <h2 class="service-title">Серверные ядра и форки</h2>
+                        <p class="service-subtitle">
+                            Оптимизация Paper/Purpur, кастомные форки с уникальными фичами, патчи производительности
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="service-content">
+                    <div class="service-description">
+                        <p class="service-text">
+                            Создаем кастомные форки серверных ядер с уникальными функциями и оптимизациями. Модифицируем существующие ядра (Paper, Purpur) под конкретные задачи сервера, добавляем патчи производительности, исправляем баги, реализуем кастомные API.
+                        </p>
+                        <p class="service-text">
+                            Наши форки тестируются на нагрузку в 500+ игроков, обеспечивают стабильный TPS и минимальные лаги. Каждый патч документируется и обратно совместим с существующими плагинами.
+                        </p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3 class="features-title">Услуги по ядрам</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">⚡</div>
+                                <h4 class="feature-title">Оптимизация Paper/Purpur</h4>
+                                <p class="feature-description">
+                                    Настройка JIT компилятора, GC оптимизация, патчи производительности
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🔧</div>
+                                <h4 class="feature-title">Кастомные форки</h4>
+                                <p class="feature-description">
+                                    Уникальные фичи, API расширения, оптимизации под конкретные задачи
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🩹</div>
+                                <h4 class="feature-title">Патчи производительности</h4>
+                                <p class="feature-description">
+                                    Исправление багов, оптимизация чанков, сущностей, сетевого кода
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🔍</div>
+                                <h4 class="feature-title">Профилирование</h4>
+                                <p class="feature-description">
+                                    Анализ производительности, поиск узких мест, рекомендации
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn-primary">Оптимизировать ядро</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Anti-Cheat Service -->
+        <section class="service-detail">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-number">04</div>
+                    <div class="service-info">
+                        <h2 class="service-title">Античиты и системы защиты</h2>
+                        <p class="service-subtitle">
+                            Кастомные античиты, анти-бот системы, защита от краша и эксплоитов
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="service-content">
+                    <div class="service-description">
+                        <p class="service-text">
+                            Разрабатываем эффективные системы защиты от читеров, ботов и эксплоитов. Наши античиты используют продвинутые алгоритмы обнаружения, машинное обучение и поведенческий анализ. Системы работают с минимальным влиянием на производительность.
+                        </p>
+                        <p class="service-text">
+                            Защищаем от всех типов читов: flight, speed, killaura, x-ray, bypasses. Интегрируемся с существующими плагинами, предоставляем веб-панель управления и детальную статистику.
+                        </p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3 class="features-title">Системы защиты</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">🛡️</div>
+                                <h4 class="feature-title">Кастомные античиты</h4>
+                                <p class="feature-description">
+                                    Обнаружение движений, атак, взаимодействий, поведенческий анализ
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🤖</div>
+                                <h4 class="feature-title">Анти-бот системы</h4>
+                                <p class="feature-description">
+                                    CAPTCHA, поведенческие проверки, защита от брутфорса
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">💥</div>
+                                <h4 class="feature-title">Защита от краша</h4>
+                                <p class="feature-description">
+                                    Предотвращение эксплоитов, проверка данных, стабилизация сервера
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🔗</div>
+                                <h4 class="feature-title">Интеграция с решениями</h4>
+                                <p class="feature-description">
+                                    Совместимость с AAC, Spartan, NCP, кастомными системами
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn-primary">Заказать защиту</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Discord Integration Service -->
+        <section class="service-detail">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-number">05</div>
+                    <div class="service-info">
+                        <h2 class="service-title">Дискорд-интеграции</h2>
+                        <p class="service-subtitle">
+                            Боты синхронизации, система верификации, логирование действий, отображение статуса сервера
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="service-content">
+                    <div class="service-description">
+                        <p class="service-text">
+                            Создаем полноценные интеграции между Minecraft и Discord. Разрабатываем кастомных ботов, системы синхронизации данных, верификации игроков, логирования действий. Все интеграции работают в реальном времени с минимальной задержкой.
+                        </p>
+                        <p class="service-text">
+                            Боты поддерживают команды управления, уведомления, статистику, автоматическую модерацию. Интегрируемся с существующей инфраструктурой Discord и предоставляем веб-панель управления.
+                        </p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3 class="features-title">Функции интеграции</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">🤖</div>
+                                <h4 class="feature-title">Боты синхронизации</h4>
+                                <p class="feature-description">
+                                    Синхронизация ролей, чата, статистики, экономики между Discord и Minecraft
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✅</div>
+                                <h4 class="feature-title">Система верификации</h4>
+                                <p class="feature-description">
+                                    Привязка аккаунта Minecraft к Discord, автоматическая выдача ролей
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📝</div>
+                                <h4 class="feature-title">Логирование действий</h4>
+                                <p class="feature-description">
+                                    Трансляция игровых событий в Discord, модерация, отчеты
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📊</div>
+                                <h4 class="feature-title">Отображение статуса</h4>
+                                <p class="feature-description">
+                                    Онлайн сервера, TPS, игроки, события в реальном времени
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn-primary">Интегрировать Discord</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Optimization Service -->
+        <section class="service-detail">
+            <div class="container">
+                <div class="service-header">
+                    <div class="service-number">06</div>
+                    <div class="service-info">
+                        <h2 class="service-title">Оптимизация и аудит</h2>
+                        <p class="service-subtitle">
+                            Профилирование с Spark/Timings, оптимизация конфигов, рекомендации по плагинам, рефакторинг кода
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="service-content">
+                    <div class="service-description">
+                        <p class="service-text">
+                            Проводим полный аудит производительности сервера, выявляем узкие места, оптимизируем конфигурации и код. Используем профессиональные инструменты профилирования (Spark, Timings, VisualVM) для детального анализа производительности.
+                        </p>
+                        <p class="service-text">
+                            Предоставляем подробные отчеты с рекомендациями, выполняем оптимизацию настроек, замену проблемных плагинов, рефакторинг существующего кода. Добиваемся стабильного TPS 20 даже при высоком онлайне.
+                        </p>
+                    </div>
+                    
+                    <div class="service-features">
+                        <h3 class="features-title">Услуги оптимизации</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">📈</div>
+                                <h4 class="feature-title">Профилирование</h4>
+                                <p class="feature-description">
+                                    Анализ CPU, памяти, сети, чанков с помощью Spark и Timings
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">⚙️</div>
+                                <h4 class="feature-title">Оптимизация конфигов</h4>
+                                <p class="feature-description">
+                                    Настройка spigot.yml, bukkit.yml, paper.yml, JVM параметров
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🔌</div>
+                                <h4 class="feature-title">Рекомендации по плагинам</h4>
+                                <p class="feature-description">
+                                    Анализ плагинов, замена на аналоги, оптимизация настроек
+                                </p>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🔄</div>
+                                <h4 class="feature-title">Рефакторинг кода</h4>
+                                <p class="feature-description">
+                                    Оптимизация существующих плагинов, исправление утечек памяти
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-cta">
+                        <a href="contact.html" class="btn-primary">Оптимизировать сервер</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Сравнение тарифов</h2>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3 class="pricing-title">Базовый</h3>
+                            <div class="pricing-price">
+                                <span class="price-amount">от 15K ₽</span>
+                                <span class="price-period">проект</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="features-list">
+                                <li class="feature-item">Простой плагин до 2 недель</li>
+                                <li class="feature-item">1 ревизия</li>
+                                <li class="feature-item">Базовая документация</li>
+                                <li class="feature-item">Техподдержка 2 недели</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <a href="contact.html" class="btn-outline">Выбрать тариф</a>
+                        </div>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Рекомендуем</div>
+                        <div class="pricing-header">
+                            <h3 class="pricing-title">Стандарт</h3>
+                            <div class="pricing-price">
+                                <span class="price-amount">от 50K ₽</span>
+                                <span class="price-period">проект</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="features-list">
+                                <li class="feature-item">Средний проект до 1 месяца</li>
+                                <li class="feature-item">3 ревизии</li>
+                                <li class="feature-item">Полная документация</li>
+                                <li class="feature-item">Исходный код</li>
+                                <li class="feature-item">Поддержка 1 месяц</li>
+                                <li class="feature-item">Приоритетная поддержка</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <a href="contact.html" class="btn-primary">Выбрать тариф</a>
+                        </div>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3 class="pricing-title">Премиум</h3>
+                            <div class="pricing-price">
+                                <span class="price-amount">от 150K ₽</span>
+                                <span class="price-period">проект</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <ul class="features-list">
+                                <li class="feature-item">Сложный проект полный цикл</li>
+                                <li class="feature-item">Неограниченные ревизии</li>
+                                <li class="feature-item">Полная документация</li>
+                                <li class="feature-item">Исходный код</li>
+                                <li class="feature-item">Поддержка 6 месяцев</li>
+                                <li class="feature-item">VIP поддержка 24/7</li>
+                                <li class="feature-item">Обучение команды</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-cta">
+                            <a href="contact.html" class="btn-outline">Выбрать тариф</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-note">
+                    <p>Цены указаны ориентировочно. Точную стоимость определяем после брифа и анализа требований.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Готовы начать проект?</h2>
+                    <p class="cta-subtitle">
+                        Расскажите о ваших задачах, и мы подберем оптимальное решение для вашего сервера
+                    </p>
+                    <a href="contact.html" class="btn-primary">Получить консультацию</a>
+                </div>
+                <div class="cta-decoration">
+                    <div class="cta-arrow">→</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">AKY<span class="logo-accent">DEV</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Профессиональная студия разработки для Minecraft
+                    </p>
+                </div>
+                
+                <div class="footer-nav">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Навигация</h4>
+                        <nav class="footer-links">
+                            <a href="../index.html">Главная</a>
+                            <a href="about.html">О нас</a>
+                            <a href="services.html">Услуги</a>
+                            <a href="portfolio.html">Портфолио</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Ресурсы</h4>
+                        <nav class="footer-links">
+                            <a href="blog.html">Блог</a>
+                            <a href="contact.html">Контакты</a>
+                            <a href="careers.html">Вакансии</a>
+                            <a href="privacy.html">Политика</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Контакты</h4>
+                        <div class="footer-contact">
+                            <a href="https://discord.gg/VQdwjt472D" class="contact-link">Discord: сервер</a>
+                            <a href="https://t.me/akydevv" class="contact-link">Telegram: @akydevv</a>
+                            <a href="#" class="contact-link">Email: contact@akydevv.ru</a>
+                        </div>
+                        <div class="footer-socials">
+                            <a href="https://discord.gg/VQdwjt472D" class="social-link">Discord</a>
+                            <a href="https://t.me/akydevv" class="social-link">Telegram</a>
+                            <a href="https://github.com/JavaSoska777" class="social-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-border"></div>
+                <div class="footer-copyright">
+                    <p>© 2026 AkyDev. Все права защищены.</p>
+                    <div class="footer-legal">
+                        <a href="/privacy">Политика конфиденциальности</a>
+                        <a href="/terms">Оферта</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

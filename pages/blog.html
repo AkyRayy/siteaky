@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог - AkyDev | Статьи о разработке для Minecraft</title>
+    <meta name="description" content="Блог студии AkyDev: статьи о разработке плагинов, оптимизации серверов, геймдизайне и лучшие практики для Minecraft.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230A0A0A' width='100' height='100'/><text x='50' y='50' text-anchor='middle' dy='.3em' fill='%23C8FF00' font-family='monospace' font-size='40'>AK</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" class="logo-text">AKY<span class="logo-accent">DEV</span></a>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Главная</a>
+                <a href="about.html" class="nav-link">О нас</a>
+                <a href="services.html" class="nav-link">Услуги</a>
+                <a href="portfolio.html" class="nav-link">Портфолио</a>
+                <a href="blog.html" class="nav-link active">Блог</a>
+                <a href="contact.html" class="nav-link">Контакты</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn-cta">Обсудить проект</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-container">
+            <nav class="mobile-nav">
+                <a href="../index.html" class="mobile-nav-link">Главная</a>
+                <a href="about.html" class="mobile-nav-link">О нас</a>
+                <a href="services.html" class="mobile-nav-link">Услуги</a>
+                <a href="portfolio.html" class="mobile-nav-link">Портфолио</a>
+                <a href="blog.html" class="mobile-nav-link">Блог</a>
+                <a href="contact.html" class="mobile-nav-link">Контакты</a>
+            </nav>
+            <div class="mobile-socials">
+                <a href="#" class="social-link">Discord</a>
+                <a href="#" class="social-link">Telegram</a>
+                <a href="#" class="social-link">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero blog-hero">
+            <div class="hero-background">
+                <div class="glow-effect"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Блог
+                    </h1>
+                    <p class="hero-subtitle">
+                        Статьи о разработке, оптимизации и геймдизайне для Minecraft
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Categories -->
+        <section class="blog-categories">
+            <div class="container">
+                <div class="category-filters">
+                    <button class="category-btn active" data-category="all">Все статьи</button>
+                    <button class="category-btn" data-category="development">Разработка</button>
+                    <button class="category-btn" data-category="optimization">Оптимизация</button>
+                    <button class="category-btn" data-category="gamedesign">Геймдизайн</button>
+                    <button class="category-btn" data-category="tutorials">Туториалы</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Grid -->
+        <section class="blog-grid">
+            <div class="container">
+                <div class="posts-grid">
+                    <!-- Article 1 -->
+                    <article class="post-item" data-category="development">
+                        <div class="post-image">
+                            <div class="post-placeholder">
+                                <span class="post-icon">💻</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">Разработка</span>
+                                <span class="post-date">15 марта 2026</span>
+                            </div>
+                            <h3 class="post-title">
+                                <a href="blog/async-programming-minecraft.html">
+                                    Асинхронное программирование в плагинах Minecraft
+                                </a>
+                            </h3>
+                            <p class="post-excerpt">
+                                Как использовать CompletableFuture и Bukkit Scheduler для создания отзывчивых плагинов без лагов сервера.
+                            </p>
+                            <a href="blog/async-programming-minecraft.html" class="post-link">Читать далее →</a>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="post-item" data-category="optimization">
+                        <div class="post-image">
+                            <div class="post-placeholder">
+                                <span class="post-icon">⚡</span>
+                            </div>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">Оптимизация</span>
+                                <span class="post-date">10 марта 2026</span>
+                            </div>
+                            <h3 class="post-title">
+                                <a href="blog/server-optimization-guide.html">
+                                    Полное руководство по оптимизации сервера Minecraft
+                                </a>
+                            </h3>
+                            <p class="post-excerpt">
+                                Настройка JVM параметров, оптимизация конфигов и выбор правильного серверного ядра для максимальной производительности.
+                            </p>
+                            <a href="blog/server-optimization-guide.html" class="post-link">Читать далее →</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination" id="blogPagination">
+                    <button class="pagination-btn disabled" id="prevBtn" disabled>
+                        <span>←</span>
+                        <span>Предыдущая</span>
+                    </button>
+                    <div class="pagination-numbers">
+                        <button class="pagination-number active" data-page="1">1</button>
+                    </div>
+                    <button class="pagination-btn" id="nextBtn">
+                        <span>Следующая</span>
+                        <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2 class="newsletter-title">🚀 Подпишитесь на рассылку</h2>
+                    <p class="newsletter-subtitle">
+                        Получайте эксклюзивные статьи, туториалы и советы по разработке Minecraft плагинов прямо на почту
+                    </p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" class="newsletter-input" placeholder="Введите ваш email..." required>
+                        <button type="submit" class="btn-primary">Подписаться</button>
+                    </form>
+                    <div class="newsletter-success" id="newsletterSuccess">
+                        ✅ Отлично! Вы успешно подписались на нашу рассылку.
+                    </div>
+                    <div class="newsletter-features">
+                        <div class="newsletter-feature">
+                            <div class="newsletter-feature-icon">📧</div>
+                            <span>Новые статьи каждую неделю</span>
+                        </div>
+                        <div class="newsletter-feature">
+                            <div class="newsletter-feature-icon">💎</div>
+                            <span>Эксклюзивный контент</span>
+                        </div>
+                        <div class="newsletter-feature">
+                            <div class="newsletter-feature-icon">🔒</div>
+                            <span>Без спама, отписка anytime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Нужна помощь с проектом?</h2>
+                    <p class="cta-subtitle">
+                        Мы поможем реализовать любые идеи для вашего Minecraft сервера
+                    </p>
+                    <a href="contact.html" class="btn-primary">Обсудить проект</a>
+                </div>
+                <div class="cta-decoration">
+                    <div class="cta-arrow">→</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">AKY<span class="logo-accent">DEV</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Профессиональная студия разработки для Minecraft
+                    </p>
+                </div>
+                
+                <div class="footer-nav">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Навигация</h4>
+                        <nav class="footer-links">
+                            <a href="../index.html">Главная</a>
+                            <a href="about.html">О нас</a>
+                            <a href="services.html">Услуги</a>
+                            <a href="portfolio.html">Портфолио</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Ресурсы</h4>
+                        <nav class="footer-links">
+                            <a href="blog.html">Блог</a>
+                            <a href="contact.html">Контакты</a>
+                            <a href="careers.html">Вакансии</a>
+                            <a href="privacy.html">Политика</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Контакты</h4>
+                        <div class="footer-contact">
+                            <a href="https://discord.gg/VQdwjt472D" class="contact-link">Discord: сервер</a>
+                            <a href="https://t.me/akydevv" class="contact-link">Telegram: @akydevv</a>
+                            <a href="#" class="contact-link">Email: contact@akydevv.ru</a>
+                        </div>
+                        <div class="footer-socials">
+                            <a href="https://discord.gg/VQdwjt472D" class="social-link">Discord</a>
+                            <a href="https://t.me/akydevv" class="social-link">Telegram</a>
+                            <a href="https://github.com/JavaSoska777" class="social-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-border"></div>
+                <div class="footer-copyright">
+                    <p>© 2026 AkyDev. Все права защищены.</p>
+                    <div class="footer-legal">
+                        <a href="privacy.html">Политика конфиденциальности</a>
+                        <a href="terms.html">Оферта</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+    <script>
+        // Newsletter Form Handler
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = this.querySelector('.newsletter-input').value;
+            const successMessage = document.getElementById('newsletterSuccess');
+            const submitButton = this.querySelector('.btn-primary');
+            
+            // Simulate form submission
+            submitButton.textContent = 'Отправка...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                // Show success message
+                successMessage.style.display = 'block';
+                
+                // Reset form
+                this.reset();
+                submitButton.textContent = 'Подписаться';
+                submitButton.disabled = false;
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+                
+                // Log the subscription (in real app, send to server)
+                console.log('Newsletter subscription:', email);
+            }, 1500);
+        });
+        
+        // Custom Pagination Handler
+        const pagination = {
+            currentPage: 1,
+            totalPages: 8,
+            
+            init() {
+                this.bindEvents();
+                this.updatePagination();
+            },
+            
+            bindEvents() {
+                // Page number clicks
+                document.querySelectorAll('.pagination-number').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const page = parseInt(e.target.dataset.page);
+                        this.goToPage(page);
+                    });
+                });
+                
+                // Previous button
+                document.getElementById('prevBtn').addEventListener('click', () => {
+                    if (this.currentPage > 1) {
+                        this.goToPage(this.currentPage - 1);
+                    }
+                });
+                
+                // Next button
+                document.getElementById('nextBtn').addEventListener('click', () => {
+                    if (this.currentPage < this.totalPages) {
+                        this.goToPage(this.currentPage + 1);
+                    }
+                });
+            },
+            
+            goToPage(page) {
+                if (page < 1 || page > this.totalPages) return;
+                
+                this.currentPage = page;
+                this.updatePagination();
+                this.loadPage(page);
+            },
+            
+            updatePagination() {
+                // Update active page number
+                document.querySelectorAll('.pagination-number').forEach(btn => {
+                    const pageNum = parseInt(btn.dataset.page);
+                    if (pageNum === this.currentPage) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+                
+                // Update previous/next buttons
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+                
+                if (this.currentPage === 1) {
+                    prevBtn.classList.add('disabled');
+                    prevBtn.disabled = true;
+                } else {
+                    prevBtn.classList.remove('disabled');
+                    prevBtn.disabled = false;
+                }
+                
+                if (this.currentPage === this.totalPages) {
+                    nextBtn.classList.add('disabled');
+                    nextBtn.disabled = true;
+                } else {
+                    nextBtn.classList.remove('disabled');
+                    nextBtn.disabled = false;
+                }
+            },
+            
+            loadPage(page) {
+                // Simulate page loading with animation
+                const postsGrid = document.querySelector('.posts-grid');
+                postsGrid.style.opacity = '0.5';
+                postsGrid.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    // In real app, this would load actual content for the page
+                    console.log(`Loading page ${page}`);
+                    
+                    // Reset animation
+                    postsGrid.style.opacity = '1';
+                    postsGrid.style.transform = 'translateY(0)';
+                    
+                    // Scroll to top of posts
+                    postsGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 300);
+            }
+        };
+        
+        // Initialize pagination when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            pagination.init();
+        });
+    </script>
+</body>
+</html>

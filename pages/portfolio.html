@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио - AkyDev | Наши работы и проекты</title>
+    <meta name="description" content="Портфолио студии AkyDev: наши лучшие проекты, кейсы и решения для Minecraft серверов. Плагины, игровые режимы, оптимизация и интеграции.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230A0A0A' width='100' height='100'/><text x='50' y='50' text-anchor='middle' dy='.3em' fill='%23C8FF00' font-family='monospace' font-size='40'>AK</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" class="logo-text">AKY<span class="logo-accent">DEV</span></a>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Главная</a>
+                <a href="about.html" class="nav-link">О нас</a>
+                <a href="services.html" class="nav-link">Услуги</a>
+                <a href="portfolio.html" class="nav-link active">Портфолио</a>
+                <a href="blog.html" class="nav-link">Блог</a>
+                <a href="contact.html" class="nav-link">Контакты</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn-cta">Обсудить проект</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-container">
+            <nav class="mobile-nav">
+                <a href="../index.html" class="mobile-nav-link">Главная</a>
+                <a href="about.html" class="mobile-nav-link">О нас</a>
+                <a href="services.html" class="mobile-nav-link">Услуги</a>
+                <a href="portfolio.html" class="mobile-nav-link">Портфолио</a>
+                <a href="blog.html" class="mobile-nav-link">Блог</a>
+                <a href="contact.html" class="mobile-nav-link">Контакты</a>
+            </nav>
+            <div class="mobile-socials">
+                <a href="#" class="social-link">Discord</a>
+                <a href="#" class="social-link">Telegram</a>
+                <a href="#" class="social-link">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero portfolio-hero">
+            <div class="hero-background">
+                <div class="glow-effect"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Наши работы
+                    </h1>
+                    <p class="hero-subtitle">
+                        Каждый проект — это решённая задача и довольный клиент
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <section class="portfolio-filters">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Все</button>
+                    <button class="filter-btn" data-filter="plugins">Плагины</button>
+                    <button class="filter-btn" data-filter="gamemodes">Игровые режимы</button>
+                    <button class="filter-btn" data-filter="integrations">Интеграции</button>
+                    <button class="filter-btn" data-filter="optimization">Оптимизация</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Grid -->
+        <section class="portfolio-grid">
+            <div class="container">
+                <div class="projects-grid">
+                    <!-- AkyEssentialsAddon Project -->
+                    <div class="project-item" data-category="plugins">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <div class="placeholder-content">
+                                    <span class="placeholder-icon">🔧</span>
+                                    <span class="placeholder-text">AkyEssentialsAddon</span>
+                                </div>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="https://t.me/akydevv/582" class="project-link" target="_blank">Смотреть кейс →</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AkyEssentialsAddon</h3>
+                            <div class="project-tags">
+                                <span class="tag">Плагин</span>
+                                <span class="tag">Paper 1.20+</span>
+                                <span class="tag">Аддон</span>
+                            </div>
+                            <p class="project-description">
+                                Плагин, который чинит некоторые проблемы Essentials. Исправляет скорость копания в полёте, префикс команд, а также позволяет изменять язык плагина.
+                            </p>
+                            <div class="project-meta">
+                                <div class="project-date">2026</div>
+                                <div class="project-duration">1 неделя</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AkyRelog Project -->
+                    <div class="project-item" data-category="plugins">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <div class="placeholder-content">
+                                    <span class="placeholder-icon">🔄</span>
+                                    <span class="placeholder-text">AkyRelog</span>
+                                </div>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="https://t.me/akydevv/535" class="project-link" target="_blank">Смотреть кейс →</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AkyRelog</h3>
+                            <div class="project-tags">
+                                <span class="tag">Bug-fix</span>
+                                <span class="tag">Оптимизация</span>
+                                <span class="tag">Paper 1.20+</span>
+                            </div>
+                            <p class="project-description">
+                                Улучшенный плагин для перезахода игроков. Оптимизирован, исправлены баги с ПВП-режимом и устранены проблемы с памятью.
+                            </p>
+                            <div class="project-meta">
+                                <div class="project-date">2026</div>
+                                <div class="project-duration">2 недели</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AkyLogger Project -->
+                    <div class="project-item" data-category="plugins">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <div class="placeholder-content">
+                                    <span class="placeholder-icon">📋</span>
+                                    <span class="placeholder-text">AkyLogger</span>
+                                </div>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="https://t.me/akydevv/533" class="project-link" target="_blank">Смотреть кейс →</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AkyLogger</h3>
+                            <div class="project-tags">
+                                <span class="tag">Логирование</span>
+                                <span class="tag">Paper 1.21.4+</span>
+                                <span class="tag">Аналитика</span>
+                            </div>
+                            <p class="project-description">
+                                Продвинутый логгер действий для Minecraft серверов. Записывает все действия игроков, чат, команды, блоки, PvP, экономику и наказания.
+                            </p>
+                            <div class="project-meta">
+                                <div class="project-date">2026</div>
+                                <div class="project-duration">3 недели</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AkyEvents Project -->
+                    <div class="project-item" data-category="gamemodes">
+                        <div class="project-image">
+                            <div class="project-placeholder">
+                                <div class="placeholder-content">
+                                    <span class="placeholder-icon">🎮</span>
+                                    <span class="placeholder-text">AkyEvents</span>
+                                </div>
+                            </div>
+                            <div class="project-overlay">
+                                <a href="https://t.me/akydevv/526" class="project-link" target="_blank">Смотреть кейс →</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AkyEvents</h3>
+                            <div class="project-tags">
+                                <span class="tag">События</span>
+                                <span class="tag">Боссы</span>
+                                <span class="tag">Игровые режимы</span>
+                            </div>
+                            <p class="project-description">
+                                Пакет игровых событий: AkyBlockEvent с монетными блоками, FurryBoss с уникальными боссами и миньонами, AkyMiniEvents.
+                            </p>
+                            <div class="project-meta">
+                                <div class="project-date">2026</div>
+                                <div class="project-duration">1 месяц</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-container">
+                    <button class="btn-outline load-more-btn">Загрузить ещё</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="portfolio-stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">проекта в портфолио</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">600+</div>
+                        <div class="stat-label">игроков используют</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99%</div>
+                        <div class="stat-label">клиентов довольны</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Хотите такой же проект?</h2>
+                    <p class="cta-subtitle">
+                        Расскажите о ваших идеях, и мы создадим уникальное решение для вашего сервера
+                    </p>
+                    <a href="contact.html" class="btn-primary">Начать проект</a>
+                </div>
+                <div class="cta-decoration">
+                    <div class="cta-arrow">→</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">AKY<span class="logo-accent">DEV</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Профессиональная студия разработки для Minecraft
+                    </p>
+                </div>
+                
+                <div class="footer-nav">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Навигация</h4>
+                        <nav class="footer-links">
+                            <a href="../index.html">Главная</a>
+                            <a href="about.html">О нас</a>
+                            <a href="services.html">Услуги</a>
+                            <a href="portfolio.html">Портфолио</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Ресурсы</h4>
+                        <nav class="footer-links">
+                            <a href="blog.html">Блог</a>
+                            <a href="contact.html">Контакты</a>
+                            <a href="careers.html">Вакансии</a>
+                            <a href="privacy.html">Политика</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Контакты</h4>
+                        <div class="footer-contact">
+                            <a href="https://discord.gg/VQdwjt472D" class="contact-link">Discord: сервер</a>
+                            <a href="https://t.me/akydevv" class="contact-link">Telegram: @akydevv</a>
+                            <a href="#" class="contact-link">Email: contact@akydevv.ru</a>
+                        </div>
+                        <div class="footer-socials">
+                            <a href="https://discord.gg/VQdwjt472D" class="social-link">Discord</a>
+                            <a href="https://t.me/akydevv" class="social-link">Telegram</a>
+                            <a href="https://github.com/JavaSoska777" class="social-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-border"></div>
+                <div class="footer-copyright">
+                    <p>© 2026 AkyDev. Все права защищены.</p>
+                    <div class="footer-legal">
+                        <a href="/privacy">Политика конфиденциальности</a>
+                        <a href="/terms">Оферта</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>

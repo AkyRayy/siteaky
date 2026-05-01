@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - AkyDev | Свяжитесь с нами</title>
+    <meta name="description" content="Свяжитесь со студией AkyDev для разработки плагинов и решений для Minecraft. Форма заявки, контакты, Discord, Telegram, Email.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230A0A0A' width='100' height='100'/><text x='50' y='50' text-anchor='middle' dy='.3em' fill='%23C8FF00' font-family='monospace' font-size='40'>AK</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" class="logo-text">AKY<span class="logo-accent">DEV</span></a>
+            </div>
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Главная</a>
+                <a href="about.html" class="nav-link">О нас</a>
+                <a href="services.html" class="nav-link">Услуги</a>
+                <a href="portfolio.html" class="nav-link">Портфолио</a>
+                <a href="blog.html" class="nav-link">Блог</a>
+                <a href="contact.html" class="nav-link active">Контакты</a>
+            </nav>
+            <div class="nav-cta">
+                <a href="contact.html" class="btn-cta">Обсудить проект</a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-container">
+            <nav class="mobile-nav">
+                <a href="../index.html" class="mobile-nav-link">Главная</a>
+                <a href="about.html" class="mobile-nav-link">О нас</a>
+                <a href="services.html" class="mobile-nav-link">Услуги</a>
+                <a href="portfolio.html" class="mobile-nav-link">Портфолио</a>
+                <a href="blog.html" class="mobile-nav-link">Блог</a>
+                <a href="contact.html" class="mobile-nav-link">Контакты</a>
+            </nav>
+            <div class="mobile-socials">
+                <a href="#" class="social-link">Discord</a>
+                <a href="#" class="social-link">Telegram</a>
+                <a href="#" class="social-link">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero contact-hero">
+            <div class="hero-background">
+                <div class="glow-effect"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Давайте работать вместе
+                    </h1>
+                    <p class="hero-subtitle">
+                        Расскажите о вашем проекте, и мы ответим в течение 24 часов
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-form-container">
+                        <h2 class="form-title">Отправить заявку</h2>
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Ваше имя / ник *</label>
+                                    <input type="text" id="name" name="name" class="form-input" required placeholder="Как к вам обращаться?">
+                                </div>
+                                <div class="form-group">
+                                    <label for="discord" class="form-label">Discord *</label>
+                                    <input type="text" id="discord" name="discord" class="form-input" required placeholder="username#1234">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="telegram" class="form-label">Telegram</label>
+                                    <input type="text" id="telegram" name="telegram" class="form-input" placeholder="@username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" id="email" name="email" class="form-input" placeholder="contact@example.com">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="projectType" class="form-label">Тип проекта *</label>
+                                    <select id="projectType" name="projectType" class="form-select" required>
+                                        <option value="">Выберите тип проекта</option>
+                                        <option value="custom-plugin">Кастомный плагин</option>
+                                        <option value="gamemode">Игровой режим</option>
+                                        <option value="optimization">Оптимизация</option>
+                                        <option value="anticheat">Античит</option>
+                                        <option value="integration">Интеграция</option>
+                                        <option value="other">Другое</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="budget" class="form-label">Бюджет</label>
+                                    <select id="budget" name="budget" class="form-select">
+                                        <option value="">Не определён</option>
+                                        <option value="10k">до 10K ₽</option>
+                                        <option value="30k">10-30K ₽</option>
+                                        <option value="100k">30-100K ₽</option>
+                                        <option value="100k+">100K+ ₽</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="description" class="form-label">Описание проекта *</label>
+                                <textarea id="description" name="description" class="form-textarea" required placeholder="Расскажите подробно о вашем проекте, задачах, ожиданиях..." rows="6"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="serverLink" class="form-label">Ссылка на сервер</label>
+                                <input type="url" id="serverLink" name="serverLink" class="form-input" placeholder="mc.example.com">
+                            </div>
+                            
+                            <div class="form-checkbox">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter" class="checkbox-input">
+                                    <span class="checkbox-custom"></span>
+                                    <span class="checkbox-text">Хочу получать новости и обновления о проектах</span>
+                                </label>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Отправить заявку</button>
+                                <button type="button" class="btn-outline" id="clearForm">Очистить форму</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <h3 class="info-title">Контактная информация</h3>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="contact-icon">💬</div>
+                                <div class="contact-details">
+                                    <h4 class="contact-name">Discord</h4>
+                                    <a href="https://discord.gg/VQdwjt472D" class="contact-value">Присоединиться к серверу</a>
+                                    <p class="contact-description">Основной способ связи для быстрых консультаций</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">📱</div>
+                                <div class="contact-details">
+                                    <h4 class="contact-name">Telegram</h4>
+                                    <a href="https://t.me/akydevv" class="contact-value">@akydevv</a>
+                                    <p class="contact-description">Для прямых сообщений и обсуждения проектов</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-details">
+                                    <h4 class="contact-name">Email</h4>
+                                    <a href="#" class="contact-value">contact@akydev.com</a>
+                                    <p class="contact-description">Для официальных предложений и документации</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">💻</div>
+                                <div class="contact-details">
+                                    <h4 class="contact-name">GitHub</h4>
+                                    <a href="#" class="contact-value">github.com/akydev</a>
+                                    <p class="contact-description">Наши open-source проекты и исходный код</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="working-hours">
+                            <h4 class="hours-title">Время работы</h4>
+                            <div class="hours-grid">
+                                <div class="hours-item">
+                                    <span class="hours-day">Пн-Пт</span>
+                                    <span class="hours-time">10:00 - 22:00 (МСК)</span>
+                                </div>
+                                <div class="hours-item">
+                                    <span class="hours-day">Сб-Вс</span>
+                                    <span class="hours-time">12:00 - 20:00 (МСК)</span>
+                                </div>
+                            </div>
+                            <p class="hours-note">Поддержка 24/7 для действующих клиентов</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Часто задаваемые вопросы</h2>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4 class="faq-title">Сколько стоит разработка плагина?</h4>
+                            <div class="faq-toggle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Зависит от сложности. Простой плагин от 15K ₽, средний проект от 50K ₽, сложный игровой режим от 150K ₽. Точную стоимость определяем после брифа и анализа требований.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4 class="faq-title">Какие сроки разработки?</h4>
+                            <div class="faq-toggle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Простой плагин: 1-2 недели. Средний проект: 2-4 недели. Сложный игровой режим: 1-3 месяца. Сроки могут варьироваться в зависимости от сложности и требований.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4 class="faq-title">Получу ли я исходный код?</h4>
+                            <div class="faq-toggle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, при заказе пакета "Стандарт" и выше исходный код передаётся полностью. В базовом пакете код остаётся у нас, но вы получаете скомпилированный плагин.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4 class="faq-title">Какие версии Minecraft поддерживаете?</h4>
+                            <div class="faq-toggle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Работаем с 1.16.5 по 1.21+, основной фокус на актуальных версиях. Поддерживаем Spigot, Paper, Purpur, и другие популярные серверные ядра.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4 class="faq-title">Предоставляете ли поддержку после запуска?</h4>
+                            <div class="faq-toggle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, от 1 до 6 месяцев в зависимости от тарифа. Включаем исправление багов, обновления под новые версии, консультации и техническую помощь.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4 class="faq-title">Работаете ли с Bedrock Edition?</h4>
+                            <div class="faq-toggle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Пока фокусируемся на Java Edition, но можем обсудить проекты для Geyser и других решений, которые связывают Java и Bedrock версии.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4 class="faq-title">Можно ли доработать существующий плагин?</h4>
+                            <div class="faq-toggle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Да, принимаем проекты на доработку и рефакторинг существующих плагинов. Анализируем код, оптимизируем производительность, добавляем новый функционал.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4 class="faq-title">Как происходит оплата?</h4>
+                            <div class="faq-toggle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M19 9L12 16L5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Предоплата 50% перед началом работы, 50% после завершения и тестирования. Принимаем оплату на карту, криптовалютой, через юридическое лицо.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Готовы начать проект?</h2>
+                    <p class="cta-subtitle">
+                        Заполните форму выше или свяжитесь с нами напрямую в Discord
+                    </p>
+                    <div class="cta-actions">
+                        <a href="#contactForm" class="btn-primary">Заполнить форму</a>
+                        <a href="#" class="btn-outline">Discord сервер</a>
+                    </div>
+                </div>
+                <div class="cta-decoration">
+                    <div class="cta-arrow">→</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-text">AKY<span class="logo-accent">DEV</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Профессиональная студия разработки для Minecraft
+                    </p>
+                </div>
+                
+                <div class="footer-nav">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Навигация</h4>
+                        <nav class="footer-links">
+                            <a href="../index.html">Главная</a>
+                            <a href="about.html">О нас</a>
+                            <a href="services.html">Услуги</a>
+                            <a href="portfolio.html">Портфолио</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Ресурсы</h4>
+                        <nav class="footer-links">
+                            <a href="blog.html">Блог</a>
+                            <a href="contact.html">Контакты</a>
+                            <a href="careers.html">Вакансии</a>
+                            <a href="privacy.html">Политика</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Контакты</h4>
+                        <div class="footer-contact">
+                            <a href="https://discord.gg/VQdwjt472D" class="contact-link">Discord: сервер</a>
+                            <a href="https://t.me/akydevv" class="contact-link">Telegram: @akydevv</a>
+                            <a href="#" class="contact-link">Email: contact@akydevv.ru</a>
+                        </div>
+                        <div class="footer-socials">
+                            <a href="https://discord.gg/VQdwjt472D" class="social-link">Discord</a>
+                            <a href="https://t.me/akydevv" class="social-link">Telegram</a>
+                            <a href="https://github.com/JavaSoska777" class="social-link">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-border"></div>
+                <div class="footer-copyright">
+                    <p>© 2026 AkyDev. Все права защищены.</p>
+                    <div class="footer-legal">
+                        <a href="/privacy">Политика конфиденциальности</a>
+                        <a href="/terms">Оферта</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
