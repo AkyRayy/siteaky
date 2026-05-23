@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Проекты — AkyDevv</title>
+  <meta name="description" content="Каталог проектов студии Minecraft-разработки @AkyDevv." />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="AkyDevv home">
+      <span class="brand-cube"></span>
+      <span>AkyDevv</span>
+    </a>
+    <nav class="nav" aria-label="Главная навигация">
+      <a href="index.html">Главная</a>
+      <a href="works.html" class="active">Проекты</a>
+      <a href="https://t.me/akydevv" target="_blank" rel="noreferrer">Telegram</a>
+    </nav>
+  </header>
+
+  <main class="works-page">
+    <section class="works-hero reveal">
+      <p class="eyebrow">/works.html</p>
+      <h1>Проекты студии <span>AkyDevv</span></h1>
+      <p>Каталог готовых решений для Minecraft-серверов: плагины, инструменты и кастомные механики с полным описанием и возможностью скачивания.</p>
+    </section>
+
+    <section class="project-grid" aria-label="Список проектов">
+      <article class="project-card green reveal delay-1" data-project="akycheatcheck" tabindex="0" role="button" aria-label="Открыть AkyCheatCheck">
+        <div class="card-topline"><span>PLUGIN</span><span>v1.2</span></div>
+        <div class="project-icon shield"></div>
+        <h2>AkyCheatCheck</h2>
+        <p>Проверка игроков на читы: /revise, GUI, BossBar, автобаны и оптимизации v1.2.</p>
+        <div class="tag-row"><span>Paper 1.21.4</span><span>Java 21</span><span>Free</span></div>
+        <button class="open-card" type="button">Подробнее</button>
+      </article>
+
+      <article class="project-card violet reveal delay-2" data-project="akyrunes" tabindex="0" role="button" aria-label="Открыть AkyRunes">
+        <div class="card-topline"><span>PLUGIN</span><span>v1.2</span></div>
+        <div class="project-icon rune"></div>
+        <h2>AkyRunes</h2>
+        <p>Пять рун с пассивными эффектами, MiniMessage-цветами и выдачей через команду.</p>
+        <div class="tag-row"><span>Runes</span><span>Paper 1.21.4</span><span>Free</span></div>
+        <button class="open-card" type="button">Подробнее</button>
+      </article>
+
+      <article class="project-card lime reveal delay-3" data-project="akydecompiler" tabindex="0" role="button" aria-label="Открыть AkyDecompiler 2.5">
+        <div class="card-topline"><span>TOOL</span><span>2.5</span></div>
+        <div class="project-icon terminal"></div>
+        <h2>AkyDecompiler 2.5</h2>
+        <p>Декомпиляция Java-плагинов в готовый для рекода проект, просмотр yml и экспорт исходников.</p>
+        <div class="tag-row"><span>Node.js</span><span>Java tools</span><span>7z</span></div>
+        <button class="open-card" type="button">Подробнее</button>
+      </article>
+
+      <article class="project-card orange reveal delay-4" data-project="akycustomitems" tabindex="0" role="button" aria-label="Открыть AkyCustomItems">
+        <div class="card-topline"><span>PAID PLUGIN</span><span>450₽</span></div>
+        <div class="project-icon sword"></div>
+        <h2>AkyCustomItems</h2>
+        <p>Кастомные предметы: Лук Бомбила, Меч Прометея, сет Геракла, Кирка Гнома и другие.</p>
+        <div class="tag-row"><span>Custom Items</span><span>450₽</span><span>@AkyRayy</span></div>
+        <button class="open-card" type="button">Подробнее</button>
+      </article>
+    </section>
+  </main>
+
+  <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" data-close="true"></div>
+    <article class="modal-panel" role="document">
+      <button class="modal-close" type="button" aria-label="Закрыть окно" data-close="true">×</button>
+      <div class="modal-kicker" id="modalKicker"></div>
+      <h2 id="modalTitle"></h2>
+      <p class="modal-subtitle" id="modalSubtitle"></p>
+      <div class="modal-actions" id="modalActions"></div>
+      <div class="modal-content" id="modalContent"></div>
+    </article>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
