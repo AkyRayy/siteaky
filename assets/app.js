@@ -237,6 +237,9 @@ const modalSubtitle = document.getElementById('modalSubtitle');
 const modalActions = document.getElementById('modalActions');
 const modalContent = document.getElementById('modalContent');
 let lastFocused = null;
+const closeMs = parseFloat(
+  getComputedStyle(document.documentElement).getPropertyValue('--modal-close-dur')
+) || 150;
 
 function buildActions(project) {
   const actions = [];
@@ -262,23 +265,30 @@ function openProject(id) {
   modalSubtitle.textContent = project.subtitle;
   modalActions.innerHTML = buildActions(project);
   modalContent.innerHTML = project.content;
-  
+
   // Get accent color from card
   const card = document.querySelector(`[data-project="${id}"]`);
   const accentColor = card ? getComputedStyle(card).getPropertyValue('--accent') : 'var(--acid)';
   modalPanel.style.setProperty('--modal-accent', accentColor);
-  
+
+  modalPanel.classList.remove('is-closing');
   modal.classList.add('is-open');
+  modalPanel.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
   modal.querySelector('.modal-close').focus();
 }
 
 function closeModal() {
-  modal.classList.remove('is-open');
-  modal.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-  if (lastFocused) lastFocused.focus();
+  modalPanel.classList.remove('is-open');
+  modalPanel.classList.add('is-closing');
+  setTimeout(() => {
+    modalPanel.classList.remove('is-closing');
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }, closeMs);
 }
 
 document.querySelectorAll('[data-project]').forEach(card => {
@@ -299,3 +309,138 @@ document.querySelectorAll('[data-close]').forEach(el => el.addEventListener('cli
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
 });
+
+// Success check animation for download buttons
+document.addEventListener('click', event => {
+  const downloadBtn = event.target.closest('a[download]');
+  if (!downloadBtn) return;
+
+  // Create success check element
+  const check = document.createElement('span');
+  check.className = 't-success-check';
+  check.setAttribute('data-state', 'out');
+  check.setAttribute('aria-hidden', 'true');
+  check.innerHTML = `
+    <svg viewBox="0 0 48 48" fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 24 L20 32 L36 16" />
+    </svg>
+  `;
+
+  // Position it over the button
+  const rect = downloadBtn.getBoundingClientRect();
+  check.style.position = 'fixed';
+  check.style.left = rect.left + rect.width / 2 - 24 + 'px';
+  check.style.top = rect.top + rect.height / 2 - 24 + 'px';
+  check.style.zIndex = '1000';
+
+  document.body.appendChild(check);
+
+  // Trigger animation
+  requestAnimationFrame(() => {
+    check.setAttribute('data-state', 'in');
+  });
+
+  // Remove after animation
+  setTimeout(() => {
+    check.remove();
+  }, 600);
+});
+
+// Text swap animation for buttons
+document.querySelectorAll('.t-text-swap').forEach(btn => {
+  const originalText = btn.textContent;
+  const hoverText = btn.getAttribute('data-text');
+
+  if (!hoverText || hoverText === originalText) return;
+
+  btn.addEventListener('mouseenter', () => {
+    const dur = parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue('--text-swap-dur')
+    ) || 150;
+
+    btn.classList.add('is-exit');
+    setTimeout(() => {
+      btn.textContent = hoverText;
+      btn.classList.remove('is-exit');
+      btn.classList.add('is-enter-start');
+      void btn.offsetHeight;
+      btn.classList.remove('is-enter-start');
+    }, dur);
+  });
+
+  btn.addEventListener('mouseleave', () => {
+    const dur = parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue('--text-swap-dur')
+    ) || 150;
+
+    btn.classList.add('is-exit');
+    setTimeout(() => {
+      btn.textContent = originalText;
+      btn.classList.remove('is-exit');
+      btn.classList.add('is-enter-start');
+      void btn.offsetHeight;
+      btn.classList.remove('is-enter-start');
+    }, dur);
+  });
+});
+
+// Filter tabs functionality
+document.querySelectorAll('.filter-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const filter = tab.getAttribute('data-filter');
+
+    // Update active state
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    // Filter cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      const cardType = card.getAttribute('data-type');
+      if (filter === 'all' || cardType === filter) {
+        card.style.display = 'flex';
+        card.style.opacity = '1';
+      } else {
+        card.style.display = 'none';
+        card.style.opacity = '0';
+      }
+    });
+  });
+});
+
+// Page load transition animation
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.style.opacity = '0';
+  document.body.style.transition = 'opacity 0.3s ease-out';
+  requestAnimationFrame(() => {
+    document.body.style.opacity = '1';
+  });
+});
+
+// Theme toggle functionality
+const themeToggle = document.querySelector('.theme-toggle');
+const sunIcon = document.querySelector('.theme-icon.sun');
+const moonIcon = document.querySelector('.theme-icon.moon');
+
+// Check for saved theme preference or default to light
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+updateThemeIcons(savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+  
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+  updateThemeIcons(newTheme);
+});
+
+function updateThemeIcons(theme) {
+  if (theme === 'dark') {
+    sunIcon.style.display = 'none';
+    moonIcon.style.display = 'block';
+  } else {
+    sunIcon.style.display = 'block';
+    moonIcon.style.display = 'none';
+  }
+}
