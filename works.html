@@ -18,6 +18,22 @@
       <a href="index.html">Главная</a>
       <a href="works.html" class="active">Проекты</a>
       <a href="https://t.me/akydevv" target="_blank" rel="noreferrer">Telegram</a>
+      <button class="theme-toggle" aria-label="Переключить тему" type="button">
+        <svg class="theme-icon sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="theme-icon moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
     </nav>
   </header>
 
@@ -26,46 +42,60 @@
       <p class="eyebrow">/works.html</p>
       <h1>Проекты студии <span>AkyDevv</span></h1>
       <p>Каталог готовых решений для Minecraft-серверов: плагины, инструменты и кастомные механики с полным описанием и возможностью скачивания.</p>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">Все</button>
+        <button class="filter-tab" data-filter="plugin">Плагины</button>
+        <button class="filter-tab" data-filter="tool">Инструменты</button>
+        <button class="filter-tab" data-filter="paid">Платные</button>
+      </div>
     </section>
 
     <section class="project-grid" aria-label="Список проектов">
-      <article class="project-card green reveal delay-1" data-project="akycheatcheck" tabindex="0" role="button" aria-label="Открыть AkyCheatCheck">
+      <article class="project-card green reveal delay-1 t-resize" data-project="akycheatcheck" data-type="plugin" tabindex="0" role="button" aria-label="Открыть AkyCheatCheck">
         <div class="card-topline"><span>PLUGIN</span><span>v1.2</span></div>
         <div class="project-icon shield"></div>
         <h2>AkyCheatCheck</h2>
         <p>Проверка игроков на читы: /revise, GUI, BossBar, автобаны и оптимизации v1.2.</p>
         <div class="tag-row"><span>Paper 1.21.4</span><span>Java 21</span><span>Free</span></div>
-        <button class="open-card" type="button">Подробнее</button>
+        <button class="open-card t-text-swap" type="button" data-text="Открыть">Подробнее</button>
       </article>
 
-      <article class="project-card violet reveal delay-2" data-project="akyrunes" tabindex="0" role="button" aria-label="Открыть AkyRunes">
+      <article class="project-card violet reveal delay-2 t-resize" data-project="akyrunes" data-type="plugin" tabindex="0" role="button" aria-label="Открыть AkyRunes">
         <div class="card-topline"><span>PLUGIN</span><span>v1.2</span></div>
         <div class="project-icon rune"></div>
         <h2>AkyRunes</h2>
         <p>Пять рун с пассивными эффектами, MiniMessage-цветами и выдачей через команду.</p>
         <div class="tag-row"><span>Runes</span><span>Paper 1.21.4</span><span>Free</span></div>
-        <button class="open-card" type="button">Подробнее</button>
+        <button class="open-card t-text-swap" type="button" data-text="Открыть">Подробнее</button>
       </article>
 
-      <article class="project-card lime reveal delay-3" data-project="akydecompiler" tabindex="0" role="button" aria-label="Открыть AkyDecompiler 2.5">
+      <article class="project-card lime reveal delay-3 t-resize" data-project="akydecompiler" data-type="tool" tabindex="0" role="button" aria-label="Открыть AkyDecompiler 2.5">
         <div class="card-topline"><span>TOOL</span><span>2.5</span></div>
         <div class="project-icon terminal"></div>
         <h2>AkyDecompiler 2.5</h2>
         <p>Декомпиляция Java-плагинов в готовый для рекода проект, просмотр yml и экспорт исходников.</p>
         <div class="tag-row"><span>Node.js</span><span>Java tools</span><span>7z</span></div>
-        <button class="open-card" type="button">Подробнее</button>
+        <button class="open-card t-text-swap" type="button" data-text="Открыть">Подробнее</button>
       </article>
 
-      <article class="project-card orange reveal delay-4" data-project="akycustomitems" tabindex="0" role="button" aria-label="Открыть AkyCustomItems">
+      <article class="project-card orange reveal delay-4 t-resize" data-project="akycustomitems" data-type="paid" tabindex="0" role="button" aria-label="Открыть AkyCustomItems">
         <div class="card-topline"><span>PAID PLUGIN</span><span>450₽</span></div>
         <div class="project-icon sword"></div>
         <h2>AkyCustomItems</h2>
         <p>Кастомные предметы: Лук Бомбила, Меч Прометея, сет Геракла, Кирка Гнома и другие.</p>
         <div class="tag-row"><span>Custom Items</span><span>450₽</span><span>@AkyRayy</span></div>
-        <button class="open-card" type="button">Подробнее</button>
+        <button class="open-card t-text-swap" type="button" data-text="Открыть">Подробнее</button>
       </article>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <p>© 2026 AkyDevv Studio. Все права защищены.</p>
+    <div class="footer-links">
+      <a href="index.html">Главная</a>
+      <a href="https://t.me/akydevv" target="_blank" rel="noreferrer">Telegram</a>
+    </div>
+  </footer>
 
   <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-backdrop" data-close="true"></div>
